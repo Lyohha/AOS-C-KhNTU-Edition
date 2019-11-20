@@ -16,8 +16,11 @@ public class Main extends Application {
 
         primaryStage.setTitle("AOS-C KhNTU Edition");
         Scene scene = new Scene(root, 600, 480);
+
         scene.getStylesheets().add(getClass().getResource("mainmenupage\\MainMenuPage.css").toExternalForm());
         primaryStage.setScene(scene);
+        primaryStage.setMinWidth(600);
+        primaryStage.setMinHeight(480);
         primaryStage.show();
     }
 
