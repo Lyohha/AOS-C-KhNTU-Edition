@@ -7,39 +7,49 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ua.lyohha.mainmenupage.MainMenuPage"
-      prefHeight="400.0" prefWidth="600.0"
-      alignment="CENTER"
-      styleClass="vbox-view">
-    <Label text="Main Menu" styleClass="label-view"/>
-    <Button text="Menu 1" fx:id="menuButton1" styleClass="button-view" onAction="#menuButton1Click" prefWidth="200">
-        <VBox.margin>
-            <Insets>
-                <top>10</top>
-            </Insets>
-        </VBox.margin>
-    </Button>
-    <Button text="Menu 1" fx:id="menuButton2" styleClass="button-view" onAction="#menuButton2Click" prefWidth="200">
-        <VBox.margin>
-            <Insets>
-                <top>10</top>
-            </Insets>
-        </VBox.margin>
-    </Button>
-    <Button text="Menu 1" fx:id="menuButton3" styleClass="button-view" onAction="#menuButton3Click" prefWidth="200">
-        <VBox.margin>
-            <Insets>
-                <top>10</top>
-            </Insets>
-        </VBox.margin>
-    </Button>
-    <Button text="Menu 1" fx:id="menuButton4" styleClass="button-view" onAction="#menuButton4Click" prefWidth="200">
-        <VBox.margin>
-            <Insets>
-                <top>10</top>
-            </Insets>
-        </VBox.margin>
-    </Button>
-</VBox>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ua.lyohha.mainmenupage.MainMenuPage"
+            prefHeight="400.0" prefWidth="600.0"
+            styleClass="vbox-view">
+    <center>
+        <VBox alignment="CENTER">
+            <Label text="Main Menu" styleClass="label-view"/>
+            <Button text="Menu 1" fx:id="menuButton1" styleClass="button-view" onAction="#menuButton1Click"
+                    prefWidth="200">
+                <VBox.margin>
+                    <Insets>
+                        <top>15</top>
+                    </Insets>
+                </VBox.margin>
+            </Button>
+            <Button text="Menu 1" fx:id="menuButton2" styleClass="button-view" onAction="#menuButton2Click"
+                    prefWidth="200">
+                <VBox.margin>
+                    <Insets>
+                        <top>10</top>
+                    </Insets>
+                </VBox.margin>
+            </Button>
+            <Button text="Menu 1" fx:id="menuButton3" styleClass="button-view" onAction="#menuButton3Click"
+                    prefWidth="200">
+                <VBox.margin>
+                    <Insets>
+                        <top>10</top>
+                    </Insets>
+                </VBox.margin>
+            </Button>
+            <Button text="Menu 1" fx:id="menuButton4" styleClass="button-view" onAction="#menuButton4Click"
+                    prefWidth="200">
+                <VBox.margin>
+                    <Insets>
+                        <top>10</top>
+                    </Insets>
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </center>
+    <bottom>
+        <Label text="Khersonal National Technical University" styleClass="university-label"/>
+    </bottom>
+</BorderPane>
