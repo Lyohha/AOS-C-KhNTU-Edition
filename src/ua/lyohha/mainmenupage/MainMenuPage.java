@@ -12,7 +12,7 @@ public class MainMenuPage {
     public Button menuButton4;
 
     @FXML
-    private void menuButton1Click(ActionEvent event) {
+    private void menuButton1Click(ActionEvent actionEvent) {
 
     }
 
