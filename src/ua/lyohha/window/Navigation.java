@@ -17,7 +17,7 @@ public class Navigation {
         this.pane = pane;
     }
 
-    public void navigateTo(Class c) {
+    public Object navigateTo(Class c) {
         /* FXMLLoader mainWindowloader = new FXMLLoader();
         FXMLLoader menuPageloader = new FXMLLoader();
         Parent content = menuPageloader.load(MenuPage.class.getResource("MenuPage.fxml").openStream());
@@ -56,9 +56,11 @@ public class Navigation {
                 pageContent.getStylesheets().add(c.getResource(((Page) o).getStyleClass()).toExternalForm());
             pages.add(pageContent);
             ((Page)loader.getController()).navigation = this;
+            ((Page)loader.getController()).initializeComponent();
             updateView();
+            return loader.getController();
         }
-
+        return null;
     }
 
     private void updateView() {

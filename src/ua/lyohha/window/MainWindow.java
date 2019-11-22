@@ -39,7 +39,10 @@ public class MainWindow extends Application {
 
         //((MainWindow)mainWindowloader.getController()).mainVBox.getChildren().add(content);
         navigation = new Navigation(((MainWindow)mainWindowloader.getController()).mainVBox);
-        navigation.navigateTo(MenuPage.class);
+        MenuPage menuPage = (MenuPage)navigation.navigateTo(MenuPage.class);
+        menuPage.setMenuName("Main Menu");
+        String[] items = new String[]{"Item 1", "Item 2", "Item 3", "Item 4", "Exit"};
+        menuPage.setItems(Arrays.asList(items));
 
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(MenuPage.class.getResource(controller.getStyleClass()).toExternalForm());
