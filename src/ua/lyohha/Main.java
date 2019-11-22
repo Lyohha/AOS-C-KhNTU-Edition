@@ -36,6 +36,6 @@ public class Main /*extends Application*/ {
     public static void main(String[] args) {
 
         //launch(args);
-        MainWindow.launch(args);
+        Application.launch(MainWindow.class, args);
     }
 }

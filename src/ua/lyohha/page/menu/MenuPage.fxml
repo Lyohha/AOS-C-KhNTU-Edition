@@ -6,11 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ua.lyohha.page.menu.MenuPage"
-            prefHeight="480.0" prefWidth="640.0"
-            fx:id="mainVBox" alignment="CENTER"
-            styleClass="vbox-view">
-    <Label text="menuname" fx:id="menuNameLabel" styleClass="label-view"/>
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ua.lyohha.page.menu.MenuPage"
+      prefHeight="480.0" prefWidth="640.0"
+      fx:id="mainVBox" alignment="CENTER"
+      styleClass="vbox-view">
+    <Label text="menuname" fx:id="menuNameLabel" styleClass="label-view">
+        <VBox.margin>
+            <Insets>
+                <bottom>5</bottom>
+            </Insets>
+        </VBox.margin>
+    </Label>
 </VBox>
