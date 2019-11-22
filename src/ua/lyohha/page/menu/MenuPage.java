@@ -13,11 +13,12 @@ import ua.lyohha.page.Page;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuPage implements Page {
+public class MenuPage extends Page {
 
     private List<String> items = new ArrayList<>();
     private List<MenuItem> menuItems = new ArrayList<>();
-    private String styleClass = "page\\menu\\MenuPage.css";
+    private String styleClass = "MenuPage.css";
+    private String page = "MenuPage.fxml";
     private ControlSelected controlSelected;
 
     public MenuPage() {
@@ -40,9 +41,12 @@ public class MenuPage implements Page {
 
             menuItem.number = i;
             menuItem.button = new Button();
-            menuItem.button.setPrefWidth(200);
+            menuItem.button.setPrefWidth(300);
             menuItem.button.setOnAction(menuItem);
             VBox.setMargin(menuItem.button, new Insets(10, 0, 0, 0));
+            menuItem.button.setText(items.get(i));
+            menuItem.button.getStyleClass().add("button-view");
+
             mainVBox.getChildren().add(menuItem.button);
             menuItems.add(menuItem);
         }
@@ -70,6 +74,16 @@ public class MenuPage implements Page {
     @Override
     public String getStyleClass() {
         return styleClass;
+    }
+
+    @Override
+    public String getPage() {
+        return page;
+    }
+
+    @Override
+    public void initializeComponent() {
+
     }
 
     private class MenuItem implements EventHandler<ActionEvent> {
