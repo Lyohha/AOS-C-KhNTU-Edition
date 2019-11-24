@@ -34,12 +34,18 @@
     </HBox>
 
     <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.rowSpan="2" styleClass="task-vbox">
-
+        <padding>
+            <Insets>
+                <left>10</left>
+                <bottom>5</bottom>
+                <top>5</top>
+            </Insets>
+        </padding>
     </VBox>
-    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" >
-
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Label alignment="CENTER"/>
     </VBox>
-    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" >
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
 
     </VBox>
 
@@ -55,14 +61,5 @@
         <Button text="В меню" styleClass="button-view" prefWidth="300"/>
         <Button text="Следующий" styleClass="button-view" prefWidth="300"/>
     </VBox>
-    <!--<HBox GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3" alignment="CENTER">
-        <padding>
-            <Insets>
-                <top>10</top>
-                <bottom>10</bottom>
-            </Insets>
-        </padding>
-
-    </HBox>-->
 
 </GridPane>
