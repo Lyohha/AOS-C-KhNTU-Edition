@@ -10,7 +10,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="ua.lyohha.mainmenupage.MainMenuPage"
-            prefHeight="480.0" prefWidth="640.0"
+            prefHeight="600.0" prefWidth="800.0"
             styleClass="vbox-view">
     <center>
         <VBox alignment="CENTER">
