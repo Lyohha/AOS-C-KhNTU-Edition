@@ -19,8 +19,7 @@ public class MainWindow extends Application {
 
     private Navigation navigation;
 
-    public MainWindow()
-    {
+    public MainWindow() {
 
     }
 
@@ -31,14 +30,16 @@ public class MainWindow extends Application {
         FXMLLoader mainWindowloader = new FXMLLoader();
         Parent root = mainWindowloader.load(getClass().getResource("MainWindow.fxml").openStream());
 
-         navigation = new Navigation(((MainWindow)mainWindowloader.getController()).mainVBox);
+        navigation = new Navigation(((MainWindow) mainWindowloader.getController()).mainVBox);
+        ((MainWindow) mainWindowloader.getController()).mainVBox.setStyle("-fx-background-color: \"#262626\"");
 
-        MainMenuControls mainMenuControls = new MainMenuControls((MenuPage)navigation.navigateTo(MenuPage.class));
+        MainMenuControls mainMenuControls = new MainMenuControls((MenuPage) navigation.navigateTo(MenuPage.class));
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(600);
+        primaryStage.setTitle("AOS C");
         primaryStage.show();
     }
 }

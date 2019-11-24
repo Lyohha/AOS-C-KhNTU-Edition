@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" build-on-make="true" name="aos-c">
+  <artifact type="javafx" name="aos-c">
     <output-path>$PROJECT_DIR$/out/artifacts/aos_c</output-path>
     <properties id="javafx-properties">
       <options>
