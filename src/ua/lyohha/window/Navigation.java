@@ -2,6 +2,7 @@ package ua.lyohha.window;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import ua.lyohha.page.Page;
 
@@ -18,17 +19,6 @@ public class Navigation {
     }
 
     public Object navigateTo(Class c) {
-        /* FXMLLoader mainWindowloader = new FXMLLoader();
-        FXMLLoader menuPageloader = new FXMLLoader();
-        Parent content = menuPageloader.load(MenuPage.class.getResource("MenuPage.fxml").openStream());
-        Parent root = mainWindowloader.load(getClass().getResource("MainWindow.fxml").openStream());
-
-        MenuPage controller = menuPageloader.getController();
-        controller.setMenuName("Main Menu");
-        String[] items = new String[]{"Item 1", "Item 2", "Item 3", "Item 4", "Exit"};
-        controller.setItems(Arrays.asList(items));
-
-        ((MainWindow)mainWindowloader.getController()).mainVBox.getChildren().add(content);*/
         Object o = null;
         try {
             o = c.newInstance();
@@ -54,6 +44,7 @@ public class Navigation {
         if (pageContent != null) {
             if (((Page) o).getStyleClass() != null)
                 pageContent.getStylesheets().add(c.getResource(((Page) o).getStyleClass()).toExternalForm());
+            GridPane.setRowIndex(pageContent, 0);
             pages.add(pageContent);
             ((Page)loader.getController()).navigation = this;
             ((Page)loader.getController()).initializeComponent();

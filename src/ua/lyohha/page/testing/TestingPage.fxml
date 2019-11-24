@@ -6,9 +6,63 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ua.lyohha.page.testing.TestingPage"
-            prefHeight="600.0" prefWidth="800.0">
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="ua.lyohha.page.testing.TestingPage"
+          prefHeight="600.0" prefWidth="800.0">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints prefWidth="150" minWidth="150"/>
+        <ColumnConstraints prefWidth="150" minWidth="150"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints/>
+    </rowConstraints>
 
-</AnchorPane>
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="3">
+        <padding>
+            <Insets>
+                <left>10</left>
+                <bottom>5</bottom>
+                <top>5</top>
+            </Insets>
+        </padding>
+        <Label fx:id="taskNameLabel" text="Некоторое название" styleClass="task-name-label"/>
+    </HBox>
+
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.rowSpan="2" styleClass="task-vbox">
+
+    </VBox>
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" >
+
+    </VBox>
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" >
+
+    </VBox>
+
+    <VBox GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" alignment="CENTER">
+        <padding>
+            <Insets>
+                <top>10</top>
+                <bottom>1</bottom>
+            </Insets>
+        </padding>
+        <Button text="Проверить" styleClass="button-view" prefWidth="300"/>
+        <Button text="Правильные ответы" styleClass="button-view" prefWidth="300"/>
+        <Button text="В меню" styleClass="button-view" prefWidth="300"/>
+        <Button text="Следующий" styleClass="button-view" prefWidth="300"/>
+    </VBox>
+    <!--<HBox GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3" alignment="CENTER">
+        <padding>
+            <Insets>
+                <top>10</top>
+                <bottom>10</bottom>
+            </Insets>
+        </padding>
+
+    </HBox>-->
+
+</GridPane>

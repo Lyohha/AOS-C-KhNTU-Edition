@@ -4,6 +4,7 @@ package ua.lyohha.page.menucontrols;
 
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
+import ua.lyohha.page.testing.TestingPage;
 
 public class OperationMenuControls extends MenuControl {
     public OperationMenuControls(MenuPage menuPage) {
@@ -14,6 +15,7 @@ public class OperationMenuControls extends MenuControl {
     public void onItemSelected(int item) {
         switch (item) {
             case 0:
+                menuPage.navigation.navigateTo(TestingPage.class);
                 break;
             case 1:
                 break;
