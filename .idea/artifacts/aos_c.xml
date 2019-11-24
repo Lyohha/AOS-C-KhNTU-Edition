@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="aos-c">
+    <output-path>$PROJECT_DIR$/out/artifacts/aos_c</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="ua.lyohha.Main" />
+        <option name="description" value="" />
+        <option name="height" value="480" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="AOS-C" />
+        <option name="vendor" value="Kherson National Technical University" />
+        <option name="version" value="0.1.1" />
+        <option name="width" value="640" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="aos_c.jar">
+        <element id="module-output" name="aos-c" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import ua.lyohha.page.ControlSelected;
+import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.Page;
 
 import java.util.ArrayList;
@@ -15,28 +15,31 @@ import java.util.List;
 
 public class MenuPage extends Page {
 
-    private List<String> items = new ArrayList<>();
+    private String[] items;
     private List<MenuItem> menuItems = new ArrayList<>();
     private String styleClass = "MenuPage.css";
     private String page = "MenuPage.fxml";
-    private ControlSelected controlSelected;
+    private MenuControl menuControl;
 
     public MenuPage() {
 
     }
 
-    public void setItems(List<String> items) {
-        this.items = items;
-        updateView();
+    private void setItems(String[] items) {
+        if (items != null) {
+            this.items = items;
+            updateView();
+        }
     }
 
-    public void setMenuName(String name) {
-        menuNameLabel.setText(name);
+    private void setMenuName(String name) {
+        if (name != null)
+            menuNameLabel.setText(name);
     }
 
     private void updateView() {
         clearView();
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < items.length; i++) {
             MenuItem menuItem = new MenuItem();
 
             menuItem.number = i;
@@ -44,7 +47,7 @@ public class MenuPage extends Page {
             menuItem.button.setPrefWidth(300);
             menuItem.button.setOnAction(menuItem);
             VBox.setMargin(menuItem.button, new Insets(10, 0, 0, 0));
-            menuItem.button.setText(items.get(i));
+            menuItem.button.setText(items[i]);
             menuItem.button.getStyleClass().add("button-view");
 
             mainVBox.getChildren().add(menuItem.button);
@@ -59,8 +62,11 @@ public class MenuPage extends Page {
         }
     }
 
-    public void setControlSelected(ControlSelected controlSelected) {
-        this.controlSelected = controlSelected;
+    public void setControlSelected(MenuControl menuControl) {
+
+        this.menuControl = menuControl;
+        setItems(menuControl.getItems());
+        setMenuName(menuControl.getMenuName());
     }
 
     public VBox mainVBox;
@@ -92,8 +98,8 @@ public class MenuPage extends Page {
 
         @Override
         public void handle(ActionEvent event) {
-            if (controlSelected != null)
-                controlSelected.onItemSelected(number);
+            if (menuControl != null)
+                menuControl.onItemSelected(number);
         }
     }
 }

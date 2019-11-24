@@ -13,7 +13,7 @@
       prefHeight="480.0" prefWidth="640.0"
       fx:id="mainVBox" alignment="CENTER"
       styleClass="vbox-view">
-    <Label text="menuname" fx:id="menuNameLabel" styleClass="label-view">
+    <Label fx:id="menuNameLabel" styleClass="label-view">
         <VBox.margin>
             <Insets>
                 <bottom>5</bottom>
