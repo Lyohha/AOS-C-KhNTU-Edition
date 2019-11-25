@@ -41,12 +41,67 @@
                 <top>5</top>
             </Insets>
         </padding>
+        <HBox>
+            <Label text="#include" styleClass="preprocessor-label-view"/>
+            <Label text=" " styleClass="text-label-view"/>
+            <Label text="&#60;stdio.h&#62;" styleClass="preprocessor-label-view"/>
+        </HBox>
+        <HBox>
+            <Label text=" " styleClass="text-label-view"/>
+        </HBox>
+        <HBox>
+            <Label text="void" styleClass="type-label-view"/>
+            <Label text=" " styleClass="text-label-view"/>
+            <Label text="main" styleClass="text-label-view"/>
+            <Label text="(" styleClass="text-label-view"/>
+            <Label text="char" styleClass="type-label-view"/>
+            <Label text="*" styleClass="text-label-view"/>
+            <Label text=" " styleClass="text-label-view"/>
+            <Label text="args" styleClass="text-label-view"/>
+            <Label text=")" styleClass="text-label-view"/>
+        </HBox>
     </VBox>
-    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <Label alignment="CENTER"/>
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="TOP_CENTER">
+        <Label textAlignment="CENTER" text="Ответ" wrapText="true" styleClass="label-view"/>
+        <TextField styleClass="text-field-view">
+            <VBox.margin>
+                <Insets>
+                    <top>20</top>
+                    <left>5</left>
+                    <right>5</right>
+                </Insets>
+            </VBox.margin>
+        </TextField>
+        <TextField styleClass="text-field-view">
+            <VBox.margin>
+                <Insets>
+                    <top>20</top>
+                    <left>5</left>
+                    <right>5</right>
+                </Insets>
+            </VBox.margin>
+        </TextField>
     </VBox>
-    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
-
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="TOP_CENTER">
+        <Label textAlignment="CENTER" text="Результат" wrapText="true" styleClass="label-view"/>
+        <Label text="ответ 1" prefWidth="140" styleClass="label-view" prefHeight="23">
+            <VBox.margin>
+                <Insets>
+                    <top>20</top>
+                    <left>5</left>
+                    <right>5</right>
+                </Insets>
+            </VBox.margin>
+        </Label>
+        <Label text="ответ 2" prefWidth="140" styleClass="label-view" prefHeight="23">
+            <VBox.margin>
+                <Insets>
+                    <top>20</top>
+                    <left>5</left>
+                    <right>5</right>
+                </Insets>
+            </VBox.margin>
+        </Label>
     </VBox>
 
     <VBox GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" alignment="CENTER">

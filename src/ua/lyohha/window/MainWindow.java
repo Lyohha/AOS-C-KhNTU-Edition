@@ -34,9 +34,9 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader mainWindowloader = new FXMLLoader();
-        Parent root = mainWindowloader.load(getClass().getResource("MainWindow.fxml").openStream());
-        MainWindow mainWindow = mainWindowloader.getController();
+        FXMLLoader mainWindowLoader = new FXMLLoader();
+        Parent root = mainWindowLoader.load(getClass().getResource("MainWindow.fxml").openStream());
+        MainWindow mainWindow = mainWindowLoader.getController();
         navigation = new Navigation(mainWindow.frameGridPane);
         mainWindow.mainGridPane.setStyle("-fx-background-color: \"#3C3F41\"");
 

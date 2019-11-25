@@ -21,5 +21,43 @@
 
 .label-view {
     -fx-text-fill: white;
-    -fx-font-size: 16;
+    -fx-font-size: 14;
+}
+
+.text-field-view{
+    -fx-background-radius: 0px;
+    -fx-background-color: "#3C3F41";
+    -fx-text-fill: "#CFCFCF";
+    -fx-border-color: "#363636";
+    /*-fx-border-color: white;*/
+}
+
+.text-field-view:hover {
+    -fx-border-color: "#B0B0B0";
+}
+
+.text-field-view:focused{
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+/*<Label text="&#60;stdio.h&#62;" styleClass="preprocessor-label-view"/>
+          </HBox>
+          <HBox>
+              <Label text="void" styleClass="type-label-view"/>
+              <Label text=" " styleClass="text-label-view"/>*/
+
+.preprocessor-label-view{
+    -fx-font-size: 12;
+    -fx-text-fill: orange;
+}
+
+.type-label-view{
+    -fx-font-size: 12;
+    -fx-text-fill: blue;
+}
+
+.text-label-view{
+    -fx-font-size: 12;
+    -fx-text-fill: "#CFCFCF";
 }
