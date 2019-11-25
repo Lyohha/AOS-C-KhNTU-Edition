@@ -42,23 +42,33 @@
             </Insets>
         </padding>
         <HBox>
-            <Label text="#include" styleClass="preprocessor-label-view"/>
-            <Label text=" " styleClass="text-label-view"/>
-            <Label text="&#60;stdio.h&#62;" styleClass="preprocessor-label-view"/>
+            <Label text="#include" styleClass="preprocessor-directive"/>
+            <Label text=" " styleClass="text"/>
+            <Label text="&#60;stdio.h&#62;" styleClass="library"/>
         </HBox>
         <HBox>
-            <Label text=" " styleClass="text-label-view"/>
+            <Label text=" " styleClass="text"/>
         </HBox>
         <HBox>
-            <Label text="void" styleClass="type-label-view"/>
-            <Label text=" " styleClass="text-label-view"/>
-            <Label text="main" styleClass="text-label-view"/>
-            <Label text="(" styleClass="text-label-view"/>
-            <Label text="char" styleClass="type-label-view"/>
-            <Label text="*" styleClass="text-label-view"/>
-            <Label text=" " styleClass="text-label-view"/>
-            <Label text="args" styleClass="text-label-view"/>
-            <Label text=")" styleClass="text-label-view"/>
+            <Label text="#define" styleClass="preprocessor-directive"/>
+            <Label text=" " styleClass="text"/>
+            <Label text="ARM" styleClass="define-operand1"/>
+            <Label text=" " styleClass="text"/>
+            <Label text="9" styleClass="define-operand2"/>
+        </HBox>
+        <HBox>
+            <Label text=" " styleClass="text"/>
+        </HBox>
+        <HBox>
+            <Label text="void" styleClass="operator"/>
+            <Label text=" " styleClass="text"/>
+            <Label text="main" styleClass="text"/>
+            <Label text="(" styleClass="text"/>
+            <Label text="char" styleClass="operator"/>
+            <Label text="*" styleClass="text"/>
+            <Label text=" " styleClass="text"/>
+            <Label text="args" styleClass="text"/>
+            <Label text=")" styleClass="text"/>
         </HBox>
     </VBox>
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="TOP_CENTER">
