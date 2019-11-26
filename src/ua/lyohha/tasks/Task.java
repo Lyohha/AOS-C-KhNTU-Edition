@@ -10,8 +10,6 @@ public interface Task {
 
     String[] getAnswers();
 
-    String[] checkAnswers(@NotNull String[] answers);
-
     String getTaskName();
 
     void setTaskCode(@NotNull Pane pane);

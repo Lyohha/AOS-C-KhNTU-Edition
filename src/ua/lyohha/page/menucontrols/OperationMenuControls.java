@@ -6,6 +6,7 @@ import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.testing.TestingPage;
 import ua.lyohha.tasks.operation.assignmentoperation.AssignmentOperationsTask;
+import ua.lyohha.tasks.operation.logicalandincrease.LogicalAndIncreaseOperationsTask;
 
 public class OperationMenuControls extends MenuControl {
     public OperationMenuControls(MenuPage menuPage) {
@@ -19,6 +20,7 @@ public class OperationMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new AssignmentOperationsTask());
                 break;
             case 1:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LogicalAndIncreaseOperationsTask());
                 break;
             case 2:
                 break;

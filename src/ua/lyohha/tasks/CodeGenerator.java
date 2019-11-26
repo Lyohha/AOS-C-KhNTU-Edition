@@ -23,6 +23,13 @@ public class CodeGenerator {
         DIVISION
     }
 
+    public enum IDOperator {
+        PREFIXINCREMENT,
+        SUFIXINCREMENT,
+        PREFIXDECREMENT,
+        SUFIXDECREMENT
+    }
+
     public enum CompareOperator {
         MORE,
         LESS,
@@ -30,6 +37,11 @@ public class CodeGenerator {
         LESSOREQUEL,
         EQUEL,
         NOTEQUEL
+    }
+
+    public enum LogicalOperator {
+        AND,
+        OR
     }
 
     public static Label createPart(String text, CodeType codeType) {
@@ -65,7 +77,7 @@ public class CodeGenerator {
         return label;
     }
 
-    public static int exeOperator(int a, int b, CodeGenerator.Operator op) {
+    public static int exeOperator(int a, int b, Operator op) {
         switch (op) {
             case MULTIPLICATION:
                 return a * b;
@@ -80,7 +92,7 @@ public class CodeGenerator {
         }
     }
 
-    public static int compare(int a, int b, CodeGenerator.CompareOperator operator) {
+    public static int compare(int a, int b, CompareOperator operator) {
         switch (operator) {
             case EQUEL:
                 return a == b ? 1 : 0;
@@ -99,7 +111,7 @@ public class CodeGenerator {
         }
     }
 
-    public static String getOperator(CodeGenerator.Operator operator) {
+    public static String getOperator(Operator operator) {
         switch (operator) {
             case ADDITION:
                 return "+";
@@ -114,7 +126,35 @@ public class CodeGenerator {
         }
     }
 
-    public static String getOperator(CodeGenerator.CompareOperator operator) {
+    public static String getOperator(LogicalOperator operator) {
+        switch (operator) {
+            case AND:
+                return "&&";
+            case OR:
+                return "||";
+            default:
+                return "";
+        }
+    }
+
+    public static String getOperator(IDOperator operator)
+    {
+        if(operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
+            return "--";
+        else
+            return "++";
+    }
+
+    public static int exeOperator(int param, IDOperator operator)
+    {
+        if(operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
+            param--;
+        else
+            param++;
+        return param;
+    }
+
+    public static String getOperator(CompareOperator operator) {
         switch (operator) {
             case LESS:
                 return "<";
@@ -133,4 +173,16 @@ public class CodeGenerator {
         }
     }
 
+
+    public static boolean compare(boolean a, boolean b, LogicalOperator operator) {
+        switch (operator) {
+            case OR:
+                return a || b;
+            case AND:
+                return a && b;
+            default:
+                return false;
+        }
+
+    }
 }

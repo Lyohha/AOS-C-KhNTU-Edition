@@ -1,11 +1,10 @@
-package ua.lyohha.tasks.operation.assignmentoperation;
+package ua.lyohha.tasks.operation.logicalandincrease;
 
-import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
 import ua.lyohha.tasks.Task;
 
-public class AssignmentOperationsTask implements Task {
-    private String taskName = "Операции присваивания";
+public class LogicalAndIncreaseOperationsTask implements Task {
+    private String taskName = "Операции: логические и увеличения";
     private TemplateGenerator templateGenerator;
 
     @Override
@@ -29,7 +28,7 @@ public class AssignmentOperationsTask implements Task {
     }
 
     @Override
-    public void setTaskCode(@NotNull Pane pane) {
+    public void setTaskCode(Pane pane) {
         templateGenerator.setTemplate(pane);
     }
 }
