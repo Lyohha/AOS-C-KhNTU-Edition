@@ -9,13 +9,14 @@ public class CodeGenerator {
         OPERATOR,
         TEXT,
         STRING,
+        NUMBER,
         DIRECTIVE,
         LIBRARY,
         DEFINE1,
         DEFINE2
     }
 
-    public enum OPERATOR
+    public enum Operator
     {
         ADDITION,
         DIFFERENCE,
@@ -23,7 +24,7 @@ public class CodeGenerator {
         DIVISION
     }
 
-    public enum COMPAREOPERATOR
+    public enum CompareOperator
     {
         MORE,
         LESS,
@@ -44,6 +45,9 @@ public class CodeGenerator {
                 break;
             case STRING:
                 label.getStyleClass().add("string");
+                break;
+            case NUMBER:
+                label.getStyleClass().add("numbers");
                 break;
             case DIRECTIVE:
                 label.getStyleClass().add("preprocessor-directive");
