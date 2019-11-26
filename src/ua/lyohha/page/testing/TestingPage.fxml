@@ -79,7 +79,7 @@
                    prefWidth="150"/>
         </HBox>
         <VBox fx:id="answersVBox">
-            <HBox>
+            <!--<HBox>
                 <VBox.margin>
                     <Insets>
                         <top>20</top>
@@ -126,7 +126,7 @@
                         </Insets>
                     </HBox.margin>
                 </Label>
-            </HBox>
+            </HBox>-->
         </VBox>
     </VBox>
 
