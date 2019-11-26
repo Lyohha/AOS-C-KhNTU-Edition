@@ -1,0 +1,41 @@
+#define PRINTX printf("%d\n", x)
+main()
+{
+    int x=7, y, z;
+    x/=5/9-1; PRINTX;
+    x*=y=z=-5; PRINTX;
+    x=55>=-64; PRINTX;
+    x==(y=45); PRINTX;
+}
+
+#define PRINTX printf("%d\n", x)
+main()
+{
+    int x=5, y, z;
+    x*=5*5-9; PRINTX;
+    x*=y=z=4; PRINTX;
+    x=-28==-76; PRINTX;
+    x<(y=85); PRINTX;
+}
+
+#define PRINTX printf("%d\n", x)
+main()
+{
+    int x=7, y, z;
+    x*=4*4+7; PRINTX;
+    x-=y=z=7; PRINTX;
+    x=-29==42; PRINTX;
+    x>=(y=57); PRINTX;
+}
+
+//шаблон
+#include <stdio.h>
+#define PRINTX printf("%d\n", x)
+void main()
+{
+    int x=%int%, y, z;
+    x%operator%=%int%%operator%%int%%operator%%int%; PRINTX;
+    x%operator%=y=z=%int%; PRINTX;
+    x=%int%==%int%; PRINTX;
+    x%compare operator%(y=%int%); PRINTX;
+}
