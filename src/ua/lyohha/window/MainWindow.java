@@ -5,19 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.menucontrols.MainMenuControls;
-
-import java.lang.reflect.Array;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainWindow extends Application {
 
@@ -29,8 +20,6 @@ public class MainWindow extends Application {
     public MainWindow() {
 
     }
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -47,7 +36,7 @@ public class MainWindow extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(800);
-        primaryStage.setMinHeight(630);
+        primaryStage.setMinHeight(500);
         primaryStage.setTitle("AOS C");
         primaryStage.show();
     }

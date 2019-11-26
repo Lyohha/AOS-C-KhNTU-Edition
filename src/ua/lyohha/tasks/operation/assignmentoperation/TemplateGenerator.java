@@ -67,26 +67,26 @@ public class TemplateGenerator {
 
             if ((o3 == CodeGenerator.Operator.MULTIPLICATION || o3 == CodeGenerator.Operator.DIVISION) &&
                     !(o2 == CodeGenerator.Operator.MULTIPLICATION || o3 == CodeGenerator.Operator.DIVISION)) {
-                a = exeOperator(n2, n3, o3);
-                if(a == 0 && o2 == CodeGenerator.Operator.DIVISION)
+                a = CodeGenerator.exeOperator(n2, n3, o3);
+                if (a == 0 && o2 == CodeGenerator.Operator.DIVISION)
                     continue;
-                b = exeOperator(n1, a, o2);
+                b = CodeGenerator.exeOperator(n1, a, o2);
             } else {
-                a = exeOperator(n1, n2, o2);
-                b = exeOperator(a, n3, o3);
+                a = CodeGenerator.exeOperator(n1, n2, o2);
+                b = CodeGenerator.exeOperator(a, n3, o3);
             }
-            if(b == 0 && o1 == CodeGenerator.Operator.DIVISION)
+            if (b == 0 && o1 == CodeGenerator.Operator.DIVISION)
                 continue;
             break;
         }
         while (true);
 
         lines.add(new HBox(
-                CodeGenerator.createPart("\tx" + getOperator(o1) + "=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("\tx" + CodeGenerator.getOperator(o1) + "=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(getOperator(o2), CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o2), CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n2), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(getOperator(o3), CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o3), CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n3), CodeGenerator.CodeType.NUMBER),
                 CodeGenerator.createPart("; ", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart("PRINTX", CodeGenerator.CodeType.DEFINE1),
@@ -94,7 +94,7 @@ public class TemplateGenerator {
         ));
 
 
-        x = exeOperator(x, b, o1);
+        x = CodeGenerator.exeOperator(x, b, o1);
         answers[0] = Integer.toString(x);
         return x;
     }
@@ -106,7 +106,7 @@ public class TemplateGenerator {
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tx", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(getOperator(o1), CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1), CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart("=y=z=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
                 CodeGenerator.createPart("; ", CodeGenerator.CodeType.TEXT),
@@ -114,7 +114,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
         ));
 
-        x = exeOperator(x, n1, o1);
+        x = CodeGenerator.exeOperator(x, n1, o1);
 
         answers[1] = Integer.toString(x);
     }
@@ -129,51 +129,35 @@ public class TemplateGenerator {
         lines.add(new HBox(
                 CodeGenerator.createPart("\tx=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(getOperator(o1), CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1), CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(n2), CodeGenerator.CodeType.NUMBER),
                 CodeGenerator.createPart("; ", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart("PRINTX", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
         ));
 
-        x = compare(n1, n2, o1);
+        x = CodeGenerator.compare(n1, n2, o1);
         answers[2] = Integer.toString(x);
         return x;
     }
 
-    private void createFourthExpression(int x)
-    {
+    private void createFourthExpression(int x) {
         int
                 n1 = random.nextInt(100);
         CodeGenerator.CompareOperator
                 o1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
 
         lines.add(new HBox(
-           CodeGenerator.createPart("\tx", CodeGenerator.CodeType.TEXT),
-           CodeGenerator.createPart(getOperator(o1), CodeGenerator.CodeType.TEXT),
-           CodeGenerator.createPart("(y=", CodeGenerator.CodeType.TEXT),
-           CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
-           CodeGenerator.createPart("); ", CodeGenerator.CodeType.TEXT),
-           CodeGenerator.createPart("PRINTX", CodeGenerator.CodeType.DEFINE1),
-           CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("\tx", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1), CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("(y=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
+                CodeGenerator.createPart("); ", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("PRINTX", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
         ));
 
         answers[3] = Integer.toString(x);
-    }
-
-    private int exeOperator(int a, int b, CodeGenerator.Operator op) {
-        switch (op) {
-            case MULTIPLICATION:
-                return a * b;
-            case DIFFERENCE:
-                return a - b;
-            case DIVISION:
-                return a / b;
-            case ADDITION:
-                return a + b;
-            default:
-                return 0;
-        }
     }
 
     private void createFirstsLine() {
@@ -214,57 +198,5 @@ public class TemplateGenerator {
         ));
     }
 
-    private int compare(int a, int b, CodeGenerator.CompareOperator operator) {
-        switch (operator) {
-            case EQUEL:
-                return a == b ? 1 : 0;
-            case NOTEQUEL:
-                return a != b ? 1 : 0;
-            case MOREOREQUEL:
-                return a >= b ? 1 : 0;
-            case LESSOREQUEL:
-                return a <= b ? 1 : 0;
-            case MORE:
-                return a > b ? 1 : 0;
-            case LESS:
-                return a < b ? 1 : 0;
-            default:
-                return 0;
-        }
-    }
-
-    private String getOperator(CodeGenerator.Operator operator) {
-        switch (operator) {
-            case ADDITION:
-                return "+";
-            case DIVISION:
-                return "/";
-            case DIFFERENCE:
-                return "-";
-            case MULTIPLICATION:
-                return "*";
-            default:
-                return "";
-        }
-    }
-
-    private String getOperator(CodeGenerator.CompareOperator operator) {
-        switch (operator) {
-            case LESS:
-                return "<";
-            case MORE:
-                return ">";
-            case EQUEL:
-                return "==";
-            case NOTEQUEL:
-                return "!=";
-            case LESSOREQUEL:
-                return "<=";
-            case MOREOREQUEL:
-                return ">=";
-            default:
-                return "";
-        }
-    }
 
 }

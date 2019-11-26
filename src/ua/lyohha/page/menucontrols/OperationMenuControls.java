@@ -42,6 +42,6 @@ public class OperationMenuControls extends MenuControl {
 
     @Override
     public String getMenuName() {
-        return "Операции:";
+        return "Операции";
     }
 }

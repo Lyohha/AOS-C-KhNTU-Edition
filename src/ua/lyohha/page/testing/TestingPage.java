@@ -2,12 +2,14 @@ package ua.lyohha.page.testing;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import ua.lyohha.page.Page;
 import ua.lyohha.tasks.Task;
 
@@ -31,13 +33,22 @@ public class TestingPage extends Page {
     public void checkButtonClick(ActionEvent actionEvent) {
 
         String[] answers = new String[task.getCountAnswers()];
-        for (int i = 0; i < answerFields.size(); i++)
-            answers[i] = answerFields.get(i).textField.getText();
-
-        setAnswersInField(task.checkAnswers(answers));
+        for (int i = 0; i < answerFields.size(); i++) {
+            if (task.getAnswers()[i].equals(answerFields.get(i).textField.getText().trim())) {
+                answers[i] = "верно";
+            } else {
+                answers[i] = "неверно";
+                for (i++; i < answerFields.size(); i++) {
+                    answers[i] = "";
+                }
+            }
+        }
+        setAnswersInField(answers);
+        rightAnswersButton.setDisable(false);
     }
 
     public void rightAnswersButtonClick(ActionEvent actionEvent) {
+        checkButton.setDisable(true);
         setAnswersInField(task.getAnswers());
     }
 
@@ -51,6 +62,8 @@ public class TestingPage extends Page {
     }
 
     public void nextButtonClick(ActionEvent actionEvent) {
+        rightAnswersButton.setDisable(true);
+        checkButton.setDisable(false);
         updateView();
     }
 
@@ -81,8 +94,11 @@ public class TestingPage extends Page {
             //поле вывода информации
             Label label = new Label();
             label.prefWidth(140);
+            label.setMinWidth(140);
             HBox.setMargin(label, new Insets(4, 5, 0, 5));
             label.getStyleClass().add("label-view");
+            label.setTextAlignment(TextAlignment.CENTER);
+            label.setAlignment(Pos.CENTER);
 
             //групировка
             HBox hBox = new HBox(textField, label);
@@ -113,7 +129,7 @@ public class TestingPage extends Page {
 
     @Override
     public void initializeComponent() {
-
+        rightAnswersButton.setDisable(true);
     }
 
     private class AnswerField {
