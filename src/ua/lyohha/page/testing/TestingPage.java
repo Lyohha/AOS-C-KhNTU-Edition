@@ -1,5 +1,6 @@
 package ua.lyohha.page.testing;
 
+import com.sun.org.apache.regexp.internal.RE;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -33,28 +34,55 @@ public class TestingPage extends Page {
     public void checkButtonClick(ActionEvent actionEvent) {
 
         String[] answers = new String[task.getCountAnswers()];
+        Color[] colors = new Color[task.getCountAnswers()];
         for (int i = 0; i < answerFields.size(); i++) {
             if (task.getAnswers()[i].equals(answerFields.get(i).textField.getText().trim())) {
                 answers[i] = "верно";
+                colors[i] = Color.GREEN;
             } else {
                 answers[i] = "неверно";
+                colors[i] = Color.RED;
                 for (i++; i < answerFields.size(); i++) {
                     answers[i] = "";
+                    colors[i] = Color.RED;
                 }
             }
         }
-        setAnswersInField(answers);
+        setAnswersInField(answers, colors);
         rightAnswersButton.setDisable(false);
+    }
+
+    enum Color {
+        WHITE,
+        RED,
+        GREEN
     }
 
     public void rightAnswersButtonClick(ActionEvent actionEvent) {
         checkButton.setDisable(true);
-        setAnswersInField(task.getAnswers());
+        Color[] colors = new Color[task.getCountAnswers()];
+        for (int i = 0; i < task.getCountAnswers(); i++)
+            colors[i] = Color.WHITE;
+        setAnswersInField(task.getAnswers(), colors);
     }
 
-    private void setAnswersInField(String[] answers) {
-        for (int i = 0; i < answerFields.size(); i++)
+    private void setAnswersInField(String[] answers, Color[] colors) {
+        for (int i = 0; i < answerFields.size(); i++) {
             answerFields.get(i).label.setText(answers[i]);
+            answerFields.get(i).label.getStyleClass().clear();
+            switch (colors[i])
+            {
+                case WHITE:
+                    answerFields.get(i).label.getStyleClass().add("label-view-white");
+                    break;
+                case RED:
+                    answerFields.get(i).label.getStyleClass().add("label-view-red");
+                    break;
+                case GREEN:
+                    answerFields.get(i).label.getStyleClass().add("label-view-green");
+                    break;
+            }
+        }
     }
 
     public void menuButtonClick(ActionEvent actionEvent) {
@@ -96,7 +124,7 @@ public class TestingPage extends Page {
             label.prefWidth(140);
             label.setMinWidth(140);
             HBox.setMargin(label, new Insets(4, 5, 0, 5));
-            label.getStyleClass().add("label-view");
+            //label.getStyleClass().add("label-view");
             label.setTextAlignment(TextAlignment.CENTER);
             label.setAlignment(Pos.CENTER);
 
