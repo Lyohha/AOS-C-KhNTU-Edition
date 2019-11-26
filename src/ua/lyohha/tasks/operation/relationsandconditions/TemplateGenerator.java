@@ -37,8 +37,8 @@ public class TemplateGenerator {
 
     private Variables createVariables() {
         int x = random.nextInt(10);
-        int y = random.nextInt(10);
-        int z = random.nextInt(10);
+        int y = random.nextInt(30);
+        int z = random.nextInt(30);
         lines.add(new HBox(
                 CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
