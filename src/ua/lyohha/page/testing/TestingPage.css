@@ -44,42 +44,42 @@
 /*синтаксис*/
 
 .operator{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#3783CD";
 }
 
 .text{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#C8C8C8";
 }
 
 .preprocessor-directive{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#9B9B9B";
 }
 
 .library{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#D69D85";
 }
 
 .define-operand1{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#BD63C5";
 }
 
 .define-operand2{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#DCDCDC";
 }
 
 .numbers{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#B5CEA8";
 }
 
 .string{
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-text-fill: "#9B9B9B";
 }
 

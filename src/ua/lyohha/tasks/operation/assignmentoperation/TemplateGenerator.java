@@ -33,6 +33,7 @@ public class TemplateGenerator {
         x = createFirstExpression(x);
         createSecondExpression(x);
         x = createThirdExpression(x);
+        createFourthExpression(x);
         createLastLine();
     }
 
@@ -138,6 +139,26 @@ public class TemplateGenerator {
         x = compare(n1, n2, o1);
         answers[2] = Integer.toString(x);
         return x;
+    }
+
+    private void createFourthExpression(int x)
+    {
+        int
+                n1 = random.nextInt(100);
+        CodeGenerator.CompareOperator
+                o1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
+
+        lines.add(new HBox(
+           CodeGenerator.createPart("\tx", CodeGenerator.CodeType.TEXT),
+           CodeGenerator.createPart(getOperator(o1), CodeGenerator.CodeType.TEXT),
+           CodeGenerator.createPart("(y=", CodeGenerator.CodeType.TEXT),
+           CodeGenerator.createPart(Integer.toString(n1), CodeGenerator.CodeType.NUMBER),
+           CodeGenerator.createPart("); ", CodeGenerator.CodeType.TEXT),
+           CodeGenerator.createPart("PRINTX", CodeGenerator.CodeType.DEFINE1),
+           CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+        answers[3] = Integer.toString(x);
     }
 
     private int exeOperator(int a, int b, CodeGenerator.Operator op) {
