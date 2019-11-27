@@ -12,8 +12,7 @@ import java.util.Random;
 public class TemplateGenerator {
 
     private List<HBox> lines = new ArrayList<>();
-    //TODO: убрать лишний текст из массива ответов
-    private String[] answers = new String[]{"an1", "am2", "am3", "an4"};
+    private String[] answers = new String[4];
     private Random random;
 
     public TemplateGenerator() {
