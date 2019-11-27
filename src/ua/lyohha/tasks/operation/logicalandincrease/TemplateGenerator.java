@@ -12,7 +12,7 @@ import java.util.Random;
 public class TemplateGenerator {
 
     private List<HBox> lines = new ArrayList<>();
-    private String[] answers = new String[]{"an1", "an2", "an3", "an4"};
+    private String[] answers = new String[4];
     private Random random;
 
     public TemplateGenerator() {
