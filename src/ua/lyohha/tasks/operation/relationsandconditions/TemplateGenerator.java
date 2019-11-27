@@ -109,31 +109,22 @@ public class TemplateGenerator {
             o1 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
         }
         while (o1 == CodeGenerator.Operator.DIVISION
-                && (CodeGenerator.compare(variables.x, variables.y, c1) == 1 ? variables.x:variables.y) == 1
+                && (CodeGenerator.compare(variables.x, variables.y, c1) == 1 ? variables.x : variables.y) == 1
                 && ido1 == CodeGenerator.IDOperator.PREFIXDECREMENT);
 
-        if(CodeGenerator.compare(variables.x, variables.y, c1) == 1)
-        {
-            if(ido1 == CodeGenerator.IDOperator.PREFIXDECREMENT || ido1 == CodeGenerator.IDOperator.PREFIXINCREMENT)
-            {
+        if (CodeGenerator.compare(variables.x, variables.y, c1) == 1) {
+            if (ido1 == CodeGenerator.IDOperator.PREFIXDECREMENT || ido1 == CodeGenerator.IDOperator.PREFIXINCREMENT) {
                 variables.x = CodeGenerator.exeOperator(variables.x, ido1);
                 variables.z = CodeGenerator.exeOperator(variables.z, variables.x, o1);
-            }
-            else
-            {
+            } else {
                 variables.z = CodeGenerator.exeOperator(variables.z, variables.x, o1);
                 variables.x = CodeGenerator.exeOperator(variables.x, ido1);
             }
-        }
-        else
-        {
-            if(ido2 == CodeGenerator.IDOperator.PREFIXDECREMENT || ido2 == CodeGenerator.IDOperator.PREFIXINCREMENT)
-            {
+        } else {
+            if (ido2 == CodeGenerator.IDOperator.PREFIXDECREMENT || ido2 == CodeGenerator.IDOperator.PREFIXINCREMENT) {
                 variables.y = CodeGenerator.exeOperator(variables.y, ido2);
                 variables.z = CodeGenerator.exeOperator(variables.z, variables.y, o1);
-            }
-            else
-            {
+            } else {
                 variables.z = CodeGenerator.exeOperator(variables.z, variables.y, o1);
                 variables.y = CodeGenerator.exeOperator(variables.y, ido2);
             }
@@ -177,9 +168,9 @@ public class TemplateGenerator {
         lines.add(new HBox(
                 CodeGenerator.createPart("\tx=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(variables.x), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(" y=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("; y=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(variables.y), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(" z=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("; z=", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(Integer.toString(variables.z), CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
         ));
@@ -200,7 +191,7 @@ public class TemplateGenerator {
     }
 
 
-        private Label addIDO(CodeGenerator.IDOperator operator, String variable) {
+    private Label addIDO(CodeGenerator.IDOperator operator, String variable) {
         switch (operator) {
             case SUFIXDECREMENT:
                 return CodeGenerator.createPart(variable + "--", CodeGenerator.CodeType.TEXT);
