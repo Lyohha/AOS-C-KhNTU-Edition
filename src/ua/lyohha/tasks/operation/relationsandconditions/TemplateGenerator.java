@@ -31,12 +31,13 @@ public class TemplateGenerator {
         random = new Random(System.currentTimeMillis());
         createFirstsLine();
         Variables variables = createVariables();
+        createFirstExpression(variables);
         createLastLine();
 
     }
 
     private Variables createVariables() {
-        int x = random.nextInt(10);
+        int x = random.nextInt(30);
         int y = random.nextInt(30);
         int z = random.nextInt(30);
         lines.add(new HBox(
@@ -55,6 +56,26 @@ public class TemplateGenerator {
     }
 
     private void createFirstExpression(Variables variables) {
+        CodeGenerator.Operator o1, o2;
+        CodeGenerator.CompareOperator
+                c1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
+        while (true) {
+            int y = variables.y;
+            o1 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
+            o2 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
+
+            if (o2 == CodeGenerator.Operator.DIVISION && variables.z == 0)
+                continue;
+            y = CodeGenerator.exeOperator(y, variables.z, o2);
+            if (y == 0 && o1 == CodeGenerator.Operator.DIVISION)
+                continue;
+            variables.y = y;
+            variables.x = CodeGenerator.exeOperator(variables.x, y, o1);
+
+            break;
+        }
+
+        answers[0] = CodeGenerator.compare(variables.x, variables.y, c1) == 1 ? Integer.toString(variables.y) : Integer.toString(variables.x);
 
     }
 
