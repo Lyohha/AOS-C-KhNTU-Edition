@@ -25,8 +25,8 @@ public class CodeGenerator {
 
     public enum IDOperator {
         PREFIXINCREMENT,
-        SUFIXINCREMENT,
         PREFIXDECREMENT,
+        SUFIXINCREMENT,
         SUFIXDECREMENT
     }
 

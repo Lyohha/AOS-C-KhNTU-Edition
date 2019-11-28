@@ -30,12 +30,15 @@ public class TemplateGenerator {
         random = new Random(System.currentTimeMillis());
         createFirstsLine();
         Variables variables = createVariables();
+        createFirstExpression(variables);
+        createSecondExpression(variables);
+        createLastLine();
     }
 
     private Variables createVariables() {
-        int x = random.nextInt(30);
-        int y = random.nextInt(30);
-        int z = random.nextInt(30);
+        int x = random.nextInt(10);
+        int y = random.nextInt(10);
+        int z = random.nextInt(10);
         lines.add(new HBox(
                 CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
@@ -53,6 +56,154 @@ public class TemplateGenerator {
 
     private void createFirstExpression(Variables variables) {
 
+        CodeGenerator.LogicalOperator
+                l1 = CodeGenerator.LogicalOperator.values()[random.nextInt(CodeGenerator.LogicalOperator.values().length)],
+                l2 = CodeGenerator.LogicalOperator.values()[random.nextInt(CodeGenerator.LogicalOperator.values().length)];
+
+        CodeGenerator.IDOperator
+                ido1 = CodeGenerator.IDOperator.values()[random.nextInt(2)],
+                ido2 = CodeGenerator.IDOperator.values()[random.nextInt(2)],
+                ido3 = CodeGenerator.IDOperator.values()[random.nextInt(2)];
+
+        variables.x = CodeGenerator.exeOperator(variables.x, ido1);
+
+        if (l1 == CodeGenerator.LogicalOperator.AND) {
+            if (variables.x == 0) {
+                if (l2 == CodeGenerator.LogicalOperator.OR)
+                    variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+            } else {
+                variables.y = CodeGenerator.exeOperator(variables.y, ido2);
+                if (variables.y == 0) {
+                    if (l2 == CodeGenerator.LogicalOperator.OR)
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                } else {
+                    if (l2 == CodeGenerator.LogicalOperator.AND)
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                }
+            }
+        } else {
+            if (variables.x == 0) {
+                variables.y = CodeGenerator.exeOperator(variables.y, ido2);
+                if (variables.y == 0) {
+                    if (l2 == CodeGenerator.LogicalOperator.OR) {
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                    }
+                } else {
+                    if (l2 == CodeGenerator.LogicalOperator.AND) {
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                    }
+                }
+            }
+        }
+
+        lines.add(new HBox(CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT)));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
+                addIDO(ido1, "x"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(l1), CodeGenerator.CodeType.TEXT),
+                addIDO(ido2, "y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(l2), CodeGenerator.CodeType.TEXT),
+                addIDO(ido3, "z"),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("y", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+        answers[0] = Integer.toString(variables.y);
+
+    }
+
+    private void createSecondExpression(Variables variables) {
+
+        CodeGenerator.LogicalOperator
+                l1 = CodeGenerator.LogicalOperator.values()[random.nextInt(CodeGenerator.LogicalOperator.values().length)],
+                l2 = CodeGenerator.LogicalOperator.values()[random.nextInt(CodeGenerator.LogicalOperator.values().length)];
+
+        CodeGenerator.IDOperator
+                ido1 = CodeGenerator.IDOperator.values()[random.nextInt(2)],
+                ido2 = CodeGenerator.IDOperator.values()[random.nextInt(2)],
+                ido3 = CodeGenerator.IDOperator.values()[random.nextInt(2)];
+
+        variables.x = random.nextInt(10);
+        variables.y = random.nextInt(10);
+        variables.z = random.nextInt(10);
+        lines.add(new HBox(
+                CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("x=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(Integer.toString(variables.x), CodeGenerator.CodeType.NUMBER),
+                CodeGenerator.createPart(", y=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(Integer.toString(variables.y), CodeGenerator.CodeType.NUMBER),
+                CodeGenerator.createPart(", z=", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(Integer.toString(variables.z), CodeGenerator.CodeType.NUMBER),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+        variables.x = CodeGenerator.exeOperator(variables.x, ido1);
+
+        if (l1 == CodeGenerator.LogicalOperator.AND) {
+            if (variables.x == 0) {
+                if (l2 == CodeGenerator.LogicalOperator.OR)
+                    variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+            } else {
+                variables.y = CodeGenerator.exeOperator(variables.y, ido2);
+                if (variables.y == 0) {
+                    if (l2 == CodeGenerator.LogicalOperator.OR)
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                } else {
+                    if (l2 == CodeGenerator.LogicalOperator.AND)
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                }
+            }
+        } else {
+            if (variables.x == 0) {
+                variables.y = CodeGenerator.exeOperator(variables.y, ido2);
+                if (variables.y == 0) {
+                    if (l2 == CodeGenerator.LogicalOperator.OR) {
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                    }
+                } else {
+                    if (l2 == CodeGenerator.LogicalOperator.AND) {
+                        variables.z = CodeGenerator.exeOperator(variables.z, ido3);
+                    }
+                }
+            }
+        }
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
+                addIDO(ido1, "x"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(l1), CodeGenerator.CodeType.TEXT),
+                addIDO(ido2, "y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(l2), CodeGenerator.CodeType.TEXT),
+                addIDO(ido3, "z"),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("x", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("y", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("z", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+        ));
+
+
+        answers[1] = Integer.toString(variables.x);
+        answers[2] = Integer.toString(variables.y);
+        answers[3] = Integer.toString(variables.z);
     }
 
     private Label addIDO(CodeGenerator.IDOperator operator, String variable) {
