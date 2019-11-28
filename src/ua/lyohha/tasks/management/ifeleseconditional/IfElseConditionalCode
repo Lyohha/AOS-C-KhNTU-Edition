@@ -1,0 +1,53 @@
+#define PRINT(int) printf("^d\n",x)
+main()
+{
+    int x, y=0, z;
+
+    if(y<9) x=66; else x=56;
+    PRINT(x);//66
+    if(y<=1) if(y==1) x=64;
+    else x=66;
+    PRINT(x);//66
+    if(z=y<5) x=3;
+    else if(y==5) x=9;
+    else x=0;
+    PRINT(x);//3
+    if(x=z=y) ; z=84;
+    PRINT(x);//0
+}
+
+#define PRINT(int) printf("^d\n",x)
+main()
+{
+    int x, y=1, z;
+
+    if(y!=2) x=11; else x=8;
+    PRINT(x);//11
+    if(y<=9) if(y==9) x=0;
+    else x=10;
+    PRINT(x);//10
+    if(z=y<7) x=0;
+    else if(y==7) x=8;
+    else x=5;
+    PRINT(x);//0
+    if(x=z=y) ; z=5;
+    PRINT(x);//1
+}
+
+#define PRINT(int) printf("^d\n",x)
+main()
+{
+    int x, y=0, z;
+
+    if(y>2) x=6; else x=3;
+    PRINT(x);//3
+    if(y>=14) if(y==14) x=90;
+    else x=105;
+    PRINT(x);//3
+    if(z=y<7) x=50;
+    else if(y==7) x=50;
+    else x=45;
+    PRINT(x);//50
+    if(x=z=y) ; x=10;
+    PRINT(x);//10
+}
