@@ -29,8 +29,8 @@ public class TemplateGenerator {
         random = new Random(System.currentTimeMillis());
         createFirstsLine();
         Variables variables = createVariables();
-        /*createFirstExpression(variables);
-        createSecondExpression(variables);*/
+        createFirstExpression(variables);
+        //createSecondExpression(variables);
         createLastLine();
     }
 
@@ -39,59 +39,88 @@ public class TemplateGenerator {
         int y = random.nextInt(10);
         int z = random.nextInt(10);
         lines.add(new HBox(
-                CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(" x=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(x), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(", y=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(y), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(", z=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(z), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("\tint", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart(" x, y="),
+                CodeGenerator.createPart(y),
+                CodeGenerator.createPart(", z;")
         ));
 
         return new Variables(x, y, z);
     }
 
+    private void createFirstExpression(Variables variables) {
+        int
+                n1 = random.nextInt(10),
+                n2 = random.nextInt(10),
+                n3 = random.nextInt(10);
+
+        CodeGenerator.CompareOperator
+                c1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
+
+        variables.x = CodeGenerator.compare(variables.y, n1, c1) == 1 ? n2 : n3;
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tif", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(") x="),
+                CodeGenerator.createPart(n2),
+                CodeGenerator.createPart("; "),
+                CodeGenerator.createPart("else", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart(" x="),
+                CodeGenerator.createPart(n3),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("x"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        answers[0] = Integer.toString(variables.x);
+
+    }
+
+
     private void createFirstsLine() {
         lines.add(new HBox(
                 CodeGenerator.createPart("#include", CodeGenerator.CodeType.DIRECTIVE),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(" "),
                 CodeGenerator.createPart("<stdio.h>", CodeGenerator.CodeType.LIBRARY)
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("PRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("printf(", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(" printf("),
                 CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
-                CodeGenerator.createPart(", ", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(", "),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(")", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(")")
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(" ")
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("void", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("main()", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(" main()")
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("{", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("{")
         ));
     }
 
     private void createLastLine() {
         lines.add(new HBox(
-                CodeGenerator.createPart("}", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("}")
         ));
     }
 

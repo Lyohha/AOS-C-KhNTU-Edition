@@ -43,15 +43,14 @@ public class TemplateGenerator {
         int y = random.nextInt(30);
         int z = random.nextInt(30);
         lines.add(new HBox(
-                CodeGenerator.createPart("\t", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(" x=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(x), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(", y=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(y), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(", z=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(z), CodeGenerator.CodeType.NUMBER),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("\tint", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart(" x="),
+                CodeGenerator.createPart(x),
+                CodeGenerator.createPart(", y="),
+                CodeGenerator.createPart(y),
+                CodeGenerator.createPart(", z="),
+                CodeGenerator.createPart(z),
+                CodeGenerator.createPart(";")
         ));
 
         return new Variables(x, y, z);
@@ -78,20 +77,20 @@ public class TemplateGenerator {
         }
 
         lines.add(new HBox(
-                CodeGenerator.createPart("\tx", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(o1), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("=y", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(o2), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("=z;", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("\tx"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1)),
+                CodeGenerator.createPart("=y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o2)),
+                CodeGenerator.createPart("=z;")
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart("x", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(c1), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("y?y:x", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("x"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart("y?y:x"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(";")
         ));
 
         answers[0] = CodeGenerator.compare(variables.x, variables.y, c1) == 1 ? Integer.toString(variables.y) : Integer.toString(variables.x);
@@ -132,23 +131,23 @@ public class TemplateGenerator {
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart("z", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(o1), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("=x", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(c1), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("y?", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("z"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1)),
+                CodeGenerator.createPart("=x"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart("y?"),
                 addIDO(ido1, "x"),
-                CodeGenerator.createPart(":", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(":"),
                 addIDO(ido2, "y"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(";")
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart("y", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("y"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(";")
         ));
 
         answers[1] = Integer.toString(variables.z);
@@ -166,24 +165,24 @@ public class TemplateGenerator {
         int result = CodeGenerator.compare(CodeGenerator.compare(variables.z, variables.y, c1), variables.x, c2);
 
         lines.add(new HBox(
-                CodeGenerator.createPart("\tx=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(variables.x), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("; y=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(variables.y), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("; z=", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(Integer.toString(variables.z), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("\tx="),
+                CodeGenerator.createPart(variables.x),
+                CodeGenerator.createPart("; y="),
+                CodeGenerator.createPart(variables.y),
+                CodeGenerator.createPart("; z="),
+                CodeGenerator.createPart(variables.z),
+                CodeGenerator.createPart(";")
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart("(z", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(c1), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("y", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart(CodeGenerator.getOperator(c2), CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("x)?1:0", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart("(z"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart("y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c2)),
+                CodeGenerator.createPart("x)?1:0"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(";", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(";")
         ));
 
         answers[3] = Integer.toString(result);
@@ -194,13 +193,13 @@ public class TemplateGenerator {
     private Label addIDO(CodeGenerator.IDOperator operator, String variable) {
         switch (operator) {
             case SUFIXDECREMENT:
-                return CodeGenerator.createPart(variable + "--", CodeGenerator.CodeType.TEXT);
+                return CodeGenerator.createPart(variable + "--");
             case PREFIXDECREMENT:
-                return CodeGenerator.createPart("--" + variable, CodeGenerator.CodeType.TEXT);
+                return CodeGenerator.createPart("--" + variable);
             case SUFIXINCREMENT:
-                return CodeGenerator.createPart(variable + "++", CodeGenerator.CodeType.TEXT);
+                return CodeGenerator.createPart(variable + "++");
             case PREFIXINCREMENT:
-                return CodeGenerator.createPart("++" + variable, CodeGenerator.CodeType.TEXT);
+                return CodeGenerator.createPart("++" + variable);
             default:
                 return null;
         }
@@ -209,42 +208,38 @@ public class TemplateGenerator {
     private void createFirstsLine() {
         lines.add(new HBox(
                 CodeGenerator.createPart("#include", CodeGenerator.CodeType.DIRECTIVE),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("<stdio.h>", CodeGenerator.CodeType.LIBRARY)
+                CodeGenerator.createPart(" <stdio.h>", CodeGenerator.CodeType.LIBRARY)
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("PRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("printf(", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(" printf("),
                 CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
-                CodeGenerator.createPart(", ", CodeGenerator.CodeType.TEXT),
+                CodeGenerator.createPart(", "),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(")", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(")")
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(" ")
         ));
 
         lines.add(new HBox(
                 CodeGenerator.createPart("void", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart(" ", CodeGenerator.CodeType.TEXT),
-                CodeGenerator.createPart("main()", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart(" main()")
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("{", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("{")
         ));
     }
 
     private void createLastLine() {
         lines.add(new HBox(
-                CodeGenerator.createPart("}", CodeGenerator.CodeType.TEXT)
+                CodeGenerator.createPart("}")
         ));
     }
 

@@ -44,6 +44,20 @@ public class CodeGenerator {
         OR
     }
 
+    public static Label createPart (String text)
+    {
+        Label label = new Label(text);
+        label.getStyleClass().add("text");
+        return label;
+    }
+
+    public static Label createPart(int number)
+    {
+        Label label = new Label(Integer.toString(number));
+        label.getStyleClass().add("numbers");
+        return label;
+    }
+
     public static Label createPart(String text, CodeType codeType) {
         Label label = new Label(text);
 
