@@ -134,8 +134,7 @@ public class TemplateGenerator {
         answers[1] = Integer.toString(variables.x);
     }
 
-    private void createThirdExpression(Variables variables)
-    {
+    private void createThirdExpression(Variables variables) {
         int
                 n1 = random.nextInt(10),
                 n2 = random.nextInt(10),
@@ -146,9 +145,9 @@ public class TemplateGenerator {
                 c1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)],
                 c2 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
 
-        if((variables.z = CodeGenerator.compare(variables.y, n1, c1)) == 1)
+        if ((variables.z = CodeGenerator.compare(variables.y, n1, c1)) == 1)
             variables.x = n2;
-        else if(CodeGenerator.compare(variables.y, n3, c2) == 1)
+        else if (CodeGenerator.compare(variables.y, n3, c2) == 1)
             variables.x = n4;
         else
             variables.x = n5;
@@ -191,14 +190,12 @@ public class TemplateGenerator {
 
     }
 
-    private void createFourthExpression(Variables variables)
-    {
+    private void createFourthExpression(Variables variables) {
         int n1 = random.nextInt(10);
         String[] vars = new String[]{"x", "y", "z"};
         int pos = random.nextInt(vars.length);
-        if((variables.x = variables.z = variables.y) != 0)
-        {
-            if(pos == 0)
+        if ((variables.x = variables.z = variables.y) != 0) {
+            if (pos == 0)
                 variables.x = n1;
         }
 
