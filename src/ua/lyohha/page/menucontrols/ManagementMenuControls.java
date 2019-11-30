@@ -4,6 +4,8 @@ package ua.lyohha.page.menucontrols;
 
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
+import ua.lyohha.page.testing.TestingPage;
+import ua.lyohha.tasks.management.ifeleseconditional.IfElseConditionalTask;
 
 public class ManagementMenuControls extends MenuControl {
     public ManagementMenuControls(MenuPage menuPage) {
@@ -14,6 +16,7 @@ public class ManagementMenuControls extends MenuControl {
     public void onItemSelected(int item) {
         switch (item) {
             case 0:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new IfElseConditionalTask());
                 break;
             case 1:
                 break;

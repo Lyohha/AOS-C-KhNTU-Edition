@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import ua.lyohha.tasks.Task;
 
 public class IfElseConditionalTask implements Task {
-    private String taskName = "ОУсловный оператор if-else";
+    private String taskName = "Условный оператор if-else";
     private TemplateGenerator templateGenerator;
 
     @Override

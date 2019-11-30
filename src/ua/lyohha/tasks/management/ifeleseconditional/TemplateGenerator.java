@@ -30,7 +30,9 @@ public class TemplateGenerator {
         createFirstsLine();
         Variables variables = createVariables();
         createFirstExpression(variables);
-        //createSecondExpression(variables);
+        createSecondExpression(variables);
+        createThirdExpression(variables);
+        createFourthExpression(variables);
         createLastLine();
     }
 
@@ -82,6 +84,141 @@ public class TemplateGenerator {
 
         answers[0] = Integer.toString(variables.x);
 
+    }
+
+    private void createSecondExpression(Variables variables) {
+        int
+                n1 = random.nextInt(10),
+                n2 = random.nextInt(10),
+                n3 = random.nextInt(10),
+                n4 = random.nextInt(10);
+        CodeGenerator.CompareOperator
+                c1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)],
+                c2 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
+        if (CodeGenerator.compare(variables.y, n1, c1) == 1) {
+            if (CodeGenerator.compare(variables.y, n2, c2) == 1)
+                variables.x = n3;
+            else
+                variables.x = n4;
+        }
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tif", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(") "),
+                CodeGenerator.createPart("if", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c2)),
+                CodeGenerator.createPart(n2),
+                CodeGenerator.createPart(") x="),
+                CodeGenerator.createPart(n3),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\telse ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("x="),
+                CodeGenerator.createPart(n4),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("x"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        answers[1] = Integer.toString(variables.x);
+    }
+
+    private void createThirdExpression(Variables variables)
+    {
+        int
+                n1 = random.nextInt(10),
+                n2 = random.nextInt(10),
+                n3 = random.nextInt(10),
+                n4 = random.nextInt(10),
+                n5 = random.nextInt(10);
+        CodeGenerator.CompareOperator
+                c1 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)],
+                c2 = CodeGenerator.CompareOperator.values()[random.nextInt(CodeGenerator.CompareOperator.values().length)];
+
+        if((variables.z = CodeGenerator.compare(variables.y, n1, c1)) == 1)
+            variables.x = n2;
+        else if(CodeGenerator.compare(variables.y, n3, c2) == 1)
+            variables.x = n4;
+        else
+            variables.x = n5;
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tif", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(z=y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(") x="),
+                CodeGenerator.createPart(n2),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\telse if", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(y"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(c2)),
+                CodeGenerator.createPart(n3),
+                CodeGenerator.createPart(") x="),
+                CodeGenerator.createPart(n4),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\telse ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("x="),
+                CodeGenerator.createPart(n5),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("x"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        answers[2] = Integer.toString(variables.x);
+
+    }
+
+    private void createFourthExpression(Variables variables)
+    {
+        int n1 = random.nextInt(10);
+        String[] vars = new String[]{"x", "y", "z"};
+        int pos = random.nextInt(vars.length);
+        if((variables.x = variables.z = variables.y) != 0)
+        {
+            if(pos == 0)
+                variables.x = n1;
+        }
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tif", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("(x=z=y) ; "),
+                CodeGenerator.createPart(vars[pos]),
+                CodeGenerator.createPart("="),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("x"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        answers[3] = Integer.toString(variables.x);
     }
 
 
