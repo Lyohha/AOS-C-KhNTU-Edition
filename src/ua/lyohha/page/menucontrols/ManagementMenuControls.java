@@ -8,6 +8,7 @@ import ua.lyohha.page.testing.TestingPage;
 import ua.lyohha.tasks.management.ifeleseconditional.IfElseConditionalTask;
 import ua.lyohha.tasks.management.loopoperatorfor.LoopOperatorForTask;
 import ua.lyohha.tasks.management.loopwhileanddowhile.LoopWhileAndDoWhileTask;
+import ua.lyohha.tasks.management.operatorswitch.OperatorSwitchTask;
 
 public class ManagementMenuControls extends MenuControl {
     public ManagementMenuControls(MenuPage menuPage) {
@@ -27,6 +28,7 @@ public class ManagementMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LoopOperatorForTask());
                 break;
             case 3:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new OperatorSwitchTask());
                 break;
             case 4:
                 break;

@@ -1,0 +1,55 @@
+#include "defs.h"
+char input[] = "gno1e9l";
+main()
+{
+    int i, c;
+    for (i=0; (c=input[i])!= '\0'; i++)
+    {
+        switch(c)
+        {
+            case '9': putchar('i'); continue;
+            case 'l': putchar('8'); continue;
+            case 'Q': continue;
+            default: putchar(c); continue;
+        }
+    }
+    putchar('\n'); //gno1ei8
+}
+
+#include "defs.h"
+char input[] = "v5mq19";
+main()
+{
+    int i, c;
+    for (i=1; (c=input[i])!= '\0'; i++)
+    {
+        switch(c)
+        {
+            case '9': putchar('q'); continue;
+            case 'q': putchar('3'); continue;
+            case '_': continue;
+            default: putchar(c); continue;
+        }
+    }
+    putchar('\n'); //5m31q
+}
+
+
+#include "stdio.h"
+void main()
+{
+    char *input = "gnole91";
+    int i;
+    char c;
+    for(i=0;(c=input[i]) != '\0'; i++)
+    {
+        switch(c)
+        {
+            case '9': putchar('i'); continue;
+            case 'l': putchar('8'); continue;
+            case 'Q': continue;
+            default: putchar(c); continue;
+        }
+    }
+    putchar('\n');
+}
