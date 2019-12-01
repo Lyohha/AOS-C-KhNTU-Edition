@@ -32,44 +32,17 @@
         <Label fx:id="taskNameLabel" text="Некоторое название" styleClass="task-name-label"/>
     </HBox>
 
-    <VBox fx:id="taskVBox" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.rowSpan="2" styleClass="task-vbox">
-        <padding>
-            <Insets>
-                <left>10</left>
-                <bottom>5</bottom>
-                <top>5</top>
-            </Insets>
-        </padding>
-        <HBox>
-            <Label text="#include" styleClass="preprocessor-directive"/>
-            <Label text=" " styleClass="text"/>
-            <Label text="&#60;stdio.h&#62;" styleClass="library"/>
-        </HBox>
-        <HBox>
-            <Label text=" " styleClass="text"/>
-        </HBox>
-        <HBox>
-            <Label text="#define" styleClass="preprocessor-directive"/>
-            <Label text=" " styleClass="text"/>
-            <Label text="ARM" styleClass="define-operand1"/>
-            <Label text=" " styleClass="text"/>
-            <Label text="9" styleClass="define-operand2"/>
-        </HBox>
-        <HBox>
-            <Label text=" " styleClass="text"/>
-        </HBox>
-        <HBox>
-            <Label text="void" styleClass="operator"/>
-            <Label text=" " styleClass="text"/>
-            <Label text="main" styleClass="text"/>
-            <Label text="(" styleClass="text"/>
-            <Label text="char" styleClass="operator"/>
-            <Label text="*" styleClass="text"/>
-            <Label text=" " styleClass="text"/>
-            <Label text="args" styleClass="text"/>
-            <Label text=")" styleClass="text"/>
-        </HBox>
-    </VBox>
+    <ScrollPane GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.rowSpan="2">
+        <VBox fx:id="taskVBox" styleClass="task-vbox">
+            <padding>
+                <Insets>
+                    <left>10</left>
+                    <bottom>5</bottom>
+                    <top>5</top>
+                </Insets>
+            </padding>
+        </VBox>
+    </ScrollPane>
 
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
         <HBox>
@@ -79,54 +52,7 @@
                    prefWidth="150"/>
         </HBox>
         <VBox fx:id="answersVBox">
-            <!--<HBox>
-                <VBox.margin>
-                    <Insets>
-                        <top>20</top>
-                    </Insets>
-                </VBox.margin>
-                <TextField styleClass="text-field-view" prefWidth="140">
-                    <HBox.margin>
-                        <Insets>
-                            <left>5</left>
-                            <right>5</right>
-                        </Insets>
-                    </HBox.margin>
-                </TextField>
-                <Label text="Ответ 1" prefWidth="140" styleClass="label-view">
-                    <HBox.margin>
-                        <Insets>
-                            <top>4</top>
-                            <left>5</left>
-                            <right>5</right>
-                        </Insets>
-                    </HBox.margin>
-                </Label>
-            </HBox>
-            <HBox>
-                <VBox.margin>
-                    <Insets>
-                        <top>20</top>
-                    </Insets>
-                </VBox.margin>
-                <TextField styleClass="text-field-view" prefWidth="140">
-                    <HBox.margin>
-                        <Insets>
-                            <left>5</left>
-                            <right>5</right>
-                        </Insets>
-                    </HBox.margin>
-                </TextField>
-                <Label text="Ответ 2" prefWidth="140" styleClass="label-view">
-                    <HBox.margin>
-                        <Insets>
-                            <top>4</top>
-                            <left>5</left>
-                            <right>5</right>
-                        </Insets>
-                    </HBox.margin>
-                </Label>
-            </HBox>-->
+
         </VBox>
     </VBox>
 

@@ -1,0 +1,58 @@
+#include "defs.h"
+#define EOS '\0'
+#define NEXT(i) input[i++]
+#define PRINT(int) printf("%d\n",x)
+
+char input[] = "o78h0po";
+main()
+{
+    char c;
+    int nom=simv=i=0;
+    while(c=NEXT(i) != EOS)
+        if(c >= '0' && c<='9') nom++
+        else simv++;
+    PRINT(nom); //3
+    for(i=0;(c=input[i])!= EOS; i++)
+        if(c>='0' && c<='9') putchar(c);
+    putchar('\n'); //780
+}
+
+#include "defs.h"
+#define EOS '\0'
+#define NEXT(i) input[i++]
+#define PRINT(int) printf("%d\n",x)
+
+char input[] = "l6w45";
+main()
+{
+    char c;
+    int nom=simv=i=0;
+    while(c=NEXT(i) != EOS)
+        if(c >= '0' && c<='9') nom++
+        else simv++;
+    PRINT(nom); //3
+    for(i=0;(c=input[i])!= EOS; i++)
+        if(c>='a' && c<='z') putchar(c);
+    putchar('\n'); //lw
+}
+
+
+
+#include "stdio.h"
+#define EOS '\0'
+#define PRINT(int) printf("%d\n", int)
+
+void main()
+{
+    char *input = "o78h0po";
+    char c;
+    int num=0, sym=0, i=0;
+    while((c=input[i++]) != EOS)
+        if(c >= '0' && c <= '9') num++;
+        else sym++;
+    PRINT(num);
+    for(i=0; (c=input[i]) != EOS; i++)
+        if(c >= '0' && c <= '9') putchar(c);
+    putchar('\n');
+}
+

@@ -25,8 +25,8 @@ public class CodeGenerator {
 
     public enum IDOperator {
         PREFIXINCREMENT,
-        SUFIXINCREMENT,
         PREFIXDECREMENT,
+        SUFIXINCREMENT,
         SUFIXDECREMENT
     }
 
@@ -42,6 +42,20 @@ public class CodeGenerator {
     public enum LogicalOperator {
         AND,
         OR
+    }
+
+    public static Label createPart (String text)
+    {
+        Label label = new Label(text);
+        label.getStyleClass().add("text");
+        return label;
+    }
+
+    public static Label createPart(int number)
+    {
+        Label label = new Label(Integer.toString(number));
+        label.getStyleClass().add("numbers");
+        return label;
     }
 
     public static Label createPart(String text, CodeType codeType) {

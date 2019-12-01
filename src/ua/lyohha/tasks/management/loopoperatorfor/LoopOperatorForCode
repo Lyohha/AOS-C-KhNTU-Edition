@@ -1,0 +1,38 @@
+#define PRINT(int) printf("%d\n", int)
+
+main()
+{
+    int x=3, y;
+    for(y=7; y>0; y--) x=y;
+    PRINT(x); //1
+    for(y=0; (x=y)<11; y++) ;
+    PRINT(x); //11
+    for(x=1,y=14; y>x; ++x, --y) ;
+    PRINT(x); PRINT(y); //8 7
+}
+
+#define PRINT(int) printf("%d\n", int)
+
+main()
+{
+    int x=1, y;
+    for(y=9; y>4; y--) x-=y;
+    PRINT(x); //-34
+    for(y=8; (x=y)>2; y--) ;
+    PRINT(x); //2
+    for(x=10,y=0; x<y; --x, ++y) ;
+    PRINT(x); PRINT(y); //5 5
+}
+
+#define PRINT(int) printf("%d\n", int)
+
+main()
+{
+    int x=3, y;
+    for(y=1; y<13; y++) x=y;
+    PRINT(x); //12
+    for(y=8; (x=y)>2; y--) ;
+    PRINT(x); //2
+    for(x=4,y=6; y>x; ++x, --y) ;
+    PRINT(x); PRINT(y); //5 5
+}
