@@ -111,7 +111,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("\'", CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart(""+c2, CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart("\'", CodeGenerator.CodeType.STRING),
-                CodeGenerator.createPart(";"),
+                CodeGenerator.createPart(");"),
                 CodeGenerator.createPart(" continue", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(";")
         ));
@@ -125,7 +125,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("\'", CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart(""+c4, CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart("\'", CodeGenerator.CodeType.STRING),
-                CodeGenerator.createPart(";"),
+                CodeGenerator.createPart(");"),
                 CodeGenerator.createPart(" continue", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(";")
         ));
@@ -158,7 +158,7 @@ public class TemplateGenerator {
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tputchar("),
-                CodeGenerator.createPart("\'\\n\'"),
+                CodeGenerator.createPart("\'\\n\'", CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart(");")
         ));
 

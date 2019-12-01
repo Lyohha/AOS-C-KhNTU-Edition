@@ -114,7 +114,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(variables.y),
                 CodeGenerator.createPart("; x"),
                 CodeGenerator.createPart(CodeGenerator.getOperator(c1)),
-                CodeGenerator.createPart("y;"),
+                CodeGenerator.createPart("y; "),
                 addIDO(ido1, "x"),
                 CodeGenerator.createPart(", "),
                 addIDO(ido2, "y"),
