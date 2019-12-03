@@ -4,6 +4,8 @@ package ua.lyohha.page.menucontrols;
 
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
+import ua.lyohha.page.testing.TestingPage;
+import ua.lyohha.tasks.functions.nestingblocks.NestingBlocksTask;
 
 public class FunctionsMenuControls extends MenuControl {
 
@@ -15,6 +17,7 @@ public class FunctionsMenuControls extends MenuControl {
     public void onItemSelected(int item) {
         switch (item) {
             case 0:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new NestingBlocksTask());
                 break;
             case 1:
                 break;
