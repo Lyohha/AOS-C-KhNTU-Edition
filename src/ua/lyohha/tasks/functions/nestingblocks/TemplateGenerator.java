@@ -146,7 +146,7 @@ public class TemplateGenerator {
                     CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart(";")
             ));
-            answers[i++] = Integer.toString(n1);
+            answers[i] = Integer.toString(n1);
         }
     }
 
