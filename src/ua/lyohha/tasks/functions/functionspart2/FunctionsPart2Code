@@ -1,0 +1,105 @@
+#include <stdio.h>
+#define PRINT(int) printf("%d\n",int)
+
+int i=9;
+
+int reset()
+{
+	return i;
+}
+
+int next(j)
+int j;
+{
+	return (j=--i);
+}
+
+void main()
+{
+	auto int i, j;
+	i = reset();
+	for(j=4; j<=7; j++)
+		PRINT(next(i));
+}
+
+//========================
+//
+//========================
+
+#include <stdio.h>
+#define PRINT(int) printf("%d\n",int)
+
+int i=1;
+
+int reset()
+{
+	return i;
+}
+
+int new(i)
+int i;
+{
+	auto int j=5;
+	return (i=j+=i);
+}
+
+void main()
+{
+	auto int i, j;
+	i = reset();
+	for(j=5; j>=2; j--)
+		PRINT(new(i+j));
+}
+
+//========================
+//
+//========================
+
+#include <stdio.h>
+#define PRINT(int) printf("%d\n",int)
+
+int i=9;
+
+int reset()
+{
+	return i;
+}
+
+int last(j)
+int j;
+{
+	static int i=8;
+	return (j=i--);
+}
+
+void main()
+{
+	auto int i, j;
+	i = reset();
+	for(j=6; j>=3; j--)
+		PRINT(last(i));
+}
+
+//========================
+//
+//========================
+
+int last(j)
+int j;
+{
+	static int i=8;
+	return (j=i--);
+}
+
+int next(j)
+int j;
+{
+	return (j=--i);
+}
+
+int new(i)
+int i;
+{
+	auto int j=5;
+	return (i=j+=i);
+}

@@ -58,6 +58,21 @@ public class CodeGenerator {
         return label;
     }
 
+    public static Label createPart(CodeGenerator.IDOperator operator, String variable) {
+        switch (operator) {
+            case SUFIXDECREMENT:
+                return createPart(variable + "--");
+            case PREFIXDECREMENT:
+                return createPart("--" + variable);
+            case SUFIXINCREMENT:
+                return createPart(variable + "++");
+            case PREFIXINCREMENT:
+                return createPart("++" + variable);
+            default:
+                return null;
+        }
+    }
+
     public static Label createPart(String text, CodeType codeType) {
         Label label = new Label(text);
 

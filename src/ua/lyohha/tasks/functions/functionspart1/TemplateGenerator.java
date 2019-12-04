@@ -355,8 +355,4 @@ public class TemplateGenerator {
             this.i = HIGH;
         }
     }
-
-    private class Workover {
-
-    }
 }
