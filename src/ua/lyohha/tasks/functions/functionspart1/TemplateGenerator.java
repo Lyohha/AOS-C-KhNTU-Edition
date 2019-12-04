@@ -31,6 +31,109 @@ public class TemplateGenerator {
             createExpression(variables, types.get(i), i);
         //createSecondExpression(text);
         createLastLine();
+        createReset();
+        if (types.contains(5))
+            createWorkOver();
+    }
+
+    private void createReset() {
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("void ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("reset(i)")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("int ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("i;")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("{")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\ti=i<="),
+                CodeGenerator.createPart("CHANGE", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("?"),
+                CodeGenerator.createPart("HIGH", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(":"),
+                CodeGenerator.createPart("LOW", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\treturn ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("i;")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("}")
+        ));
+
+    }
+
+    private void createWorkOver() {
+        int
+                n1 = random.nextInt(9) + 1,
+                n2 = random.nextInt(9) + 1;
+        CodeGenerator.Operator
+                o1 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length - 1)],
+                o2 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length - 1)],
+                o3 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length - 1)],
+                o4 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("void ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("workover(i)")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("int ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("i;")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("{")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\ti=(i%i)*((i"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1)),
+                CodeGenerator.createPart("i)"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o2)),
+                CodeGenerator.createPart("("),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o3)),
+                CodeGenerator.createPart("i)"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o4)),
+                CodeGenerator.createPart(n2),
+                CodeGenerator.createPart(");")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("i"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\treturn ", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart("i;")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("}")
+        ));
     }
 
     private void createExpression(Variables variables, int type, int answer) {
@@ -53,7 +156,7 @@ public class TemplateGenerator {
                 break;
             case 5:
                 //workover(i);
-                createFifthExpression(variables, answer);
+                createFifthExpression(answer);
                 break;
         }
     }
@@ -113,11 +216,34 @@ public class TemplateGenerator {
     }
 
     private void createFourthExpression(Variables variables, int answer) {
+        int
+                n1 = random.nextInt(9) + 1;
+        CodeGenerator.Operator
+                o1 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
 
+        variables.i = CodeGenerator.exeOperator(variables.i, n1, o1) <= variables.CHANGE ? variables.HIGH : variables.LOW;
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\ti=reset(i=i"),
+                CodeGenerator.createPart(CodeGenerator.getOperator(o1)),
+                CodeGenerator.createPart(n1),
+                CodeGenerator.createPart(");"),
+                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("i"),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));
+
+        answers[answer] = Integer.toString(variables.i);
     }
 
-    private void createFifthExpression(Variables variables, int answer) {
+    private void createFifthExpression(int answer) {
 
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tworkover(i);")
+        ));
+
+        answers[answer] = "0";
     }
 
     private List<Integer> getTypes() {
@@ -207,7 +333,13 @@ public class TemplateGenerator {
     }
 
     private Variables createVariables() {
-        return new Variables(random.nextInt(10), random.nextInt(10), random.nextInt(10));
+
+        int
+                low = random.nextInt(5),
+                high = random.nextInt(5) + 6;
+        int
+                change = random.nextInt(high - low - 1) + low + 1;
+        return new Variables(low, high, change);
     }
 
     private class Variables {
@@ -222,6 +354,9 @@ public class TemplateGenerator {
             this.CHANGE = CHANGE;
             this.i = HIGH;
         }
+    }
+
+    private class Workover {
 
     }
 }
