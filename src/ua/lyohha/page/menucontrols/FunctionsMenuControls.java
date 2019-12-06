@@ -5,6 +5,7 @@ package ua.lyohha.page.menucontrols;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.testing.TestingPage;
+import ua.lyohha.tasks.functions.files.FilesTask;
 import ua.lyohha.tasks.functions.functionspart1.FunctionsPart1Task;
 import ua.lyohha.tasks.functions.functionspart2.FunctionsPart2Task;
 import ua.lyohha.tasks.functions.nestingblocks.NestingBlocksTask;
@@ -28,6 +29,7 @@ public class FunctionsMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new FunctionsPart2Task());
                 break;
             case 3:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new FilesTask());
                 break;
             case 4:
                 break;
