@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import ua.lyohha.tasks.Task;
 
 public class FilesTask  implements Task {
-    private String taskName = "Классы памяти: функции (часть 2)";
+    private String taskName = "Классы памяти: Файлы";
     private TemplateGenerator templateGenerator;
 
     @Override
