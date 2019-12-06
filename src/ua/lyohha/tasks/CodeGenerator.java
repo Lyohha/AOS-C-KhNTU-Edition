@@ -13,7 +13,8 @@ public class CodeGenerator {
         DIRECTIVE,
         LIBRARY,
         DEFINE1,
-        DEFINE2
+        DEFINE2,
+        COMMENT
     }
 
     public enum Operator {
@@ -44,15 +45,13 @@ public class CodeGenerator {
         OR
     }
 
-    public static Label createPart (String text)
-    {
+    public static Label createPart(String text) {
         Label label = new Label(text);
         label.getStyleClass().add("text");
         return label;
     }
 
-    public static Label createPart(int number)
-    {
+    public static Label createPart(int number) {
         Label label = new Label(Integer.toString(number));
         label.getStyleClass().add("numbers");
         return label;
@@ -100,6 +99,9 @@ public class CodeGenerator {
                 break;
             case DEFINE2:
                 label.getStyleClass().add("define-operand2");
+                break;
+            case COMMENT:
+                label.getStyleClass().add("comment");
                 break;
         }
 
@@ -166,17 +168,15 @@ public class CodeGenerator {
         }
     }
 
-    public static String getOperator(IDOperator operator)
-    {
-        if(operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
+    public static String getOperator(IDOperator operator) {
+        if (operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
             return "--";
         else
             return "++";
     }
 
-    public static int exeOperator(int param, IDOperator operator)
-    {
-        if(operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
+    public static int exeOperator(int param, IDOperator operator) {
+        if (operator == IDOperator.PREFIXDECREMENT || operator == IDOperator.SUFIXDECREMENT)
             param--;
         else
             param++;
