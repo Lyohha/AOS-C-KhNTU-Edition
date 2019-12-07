@@ -4,6 +4,8 @@ package ua.lyohha.page.menucontrols;
 
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
+import ua.lyohha.page.testing.TestingPage;
+import ua.lyohha.tasks.types.cast1.Cast1Task;
 
 public class TypesMenuControls extends MenuControl {
 
@@ -15,6 +17,7 @@ public class TypesMenuControls extends MenuControl {
     public void onItemSelected(int item) {
         switch (item) {
             case 0:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new Cast1Task());
                 break;
             case 1:
                 break;
