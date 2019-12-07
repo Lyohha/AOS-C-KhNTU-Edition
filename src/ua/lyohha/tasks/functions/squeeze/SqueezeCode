@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void squeeze(char *s, char c)
+{
+	int i,j;
+	for(i=j=0; s[i] != '\0'; i++)
+		if(s[i] != c)
+			s[j++] = s[i];
+	s[j] = '\0';
+}
+
+void main()
+{
+	char *s;
+	char c[4];
+	int i;
+	s = "xmu";
+	c[0] = 'x'; c[1] = 'a'; c[2] = 'l'; c[3] = 'x';
+	for(i=0; i<=3; i++)
+	{
+		squeeze(s,c[i]);
+		printf("%s\n",s);
+	}
+}

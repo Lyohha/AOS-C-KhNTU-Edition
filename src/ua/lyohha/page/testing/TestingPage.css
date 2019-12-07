@@ -156,4 +156,9 @@
     -fx-text-fill: "#9B9B9B";
 }
 
+.comment{
+    -fx-font-size: 16;
+    -fx-text-fill: "#57A64A";
+}
+
 /*синтаксис*/

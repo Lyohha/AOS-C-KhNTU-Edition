@@ -1,0 +1,43 @@
+#include "file1.h"
+#include "file2.h"
+
+#define PRINT(int) printf("%d\n",int)
+
+int i=9;
+
+void main()
+{
+	auto int i,j;
+	i = reset();
+	j=5;
+	PRINT(i); //9
+    PRINT(next()); //8
+    PRINT(last()); //2
+    PRINT(new(i+j)); //90
+}
+
+//file 1
+static int i=2;
+int next()
+{
+	return (i+=6);
+}
+
+int last()
+{
+	return (i-=6);
+}
+
+int new(i)
+int i;
+{
+	static int j=5;
+	return (i=j*=i);
+}
+
+//file 2
+extern int i;
+int reset()
+{
+	return i;
+}

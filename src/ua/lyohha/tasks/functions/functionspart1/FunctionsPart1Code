@@ -1,0 +1,96 @@
+#include <stdio.h>
+#define PRINT(d,i) printf("%d\n", i)
+#define LOW 2
+#define HIGH 7
+#define CHANGE 6
+int i=LOW;
+
+int workover(i)
+int i;
+{
+	i=(i%i)*((i*i)-(1-i)-1);
+	PRINT(d,i);
+	return(i);
+}
+
+int reset(i)
+int i;
+{
+	i=i<=CHANGE?HIGH:LOW;
+	return (i);
+}
+
+void main()
+{
+	auto int i=HIGH;
+	i=reset(i+6); PRINT(d,i);
+	reset(i=i+6); PRINT(d,i);
+	workover(i);
+}
+
+//====================//
+//					  //
+//====================//
+#include <stdio.h>
+#define PRINT(d,i) printf("%d\n", i)
+#define LOW 0
+#define HIGH 8
+#define CHANGE 5
+int i=LOW;
+
+int reset(i)
+int i;
+{
+	i=i<=CHANGE?HIGH:LOW;
+	return (i);
+}
+
+void main()
+{
+	auto int i=HIGH;
+	reset(i+0); PRINT(d,i);
+	reset(i=i+0); PRINT(d,i);
+	i=reset(i+0); PRINT(d,i);
+}
+
+//====================//
+//					  //
+//====================//
+#include <stdio.h>
+#define PRINT(d,i) printf("%d\n", i)
+#define LOW 0
+#define HIGH 8
+#define CHANGE 5
+int i=LOW;
+
+int workover(i)
+int i;
+{
+	i=(i%i)*((i*i)+(4/i)-1);
+	PRINT(d,i);
+	return(i);
+}
+
+int reset(i)
+int i;
+{
+	i=i<=CHANGE?HIGH:LOW;
+	return (i);
+}
+
+void main()
+{
+	auto int i=HIGH;
+	reset(i+4); PRINT(d,i);
+	workover(i);
+	PRINT(d,i);
+}
+
+
+
+
+
+
+
+
+

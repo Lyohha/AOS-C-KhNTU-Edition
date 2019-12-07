@@ -1,0 +1,57 @@
+#include <stdio.h>
+#define PRINT(int) printf("%d\n", int);
+
+void main()
+{
+    auto int i=2;
+    PRINT(i);
+    {
+        int i=5;
+        PRINT(i);
+        {
+            int i=8;
+            PRINT(i);
+            i+=9;
+            PRINT(i);
+        }
+    }
+}
+
+#include <stdio.h>
+#define PRINT(int) printf("%d\n", int);
+
+void main()
+{
+    auto int i=2;
+    {
+        int i=5;
+        PRINT(i); //5
+        {
+            int i=8;
+            i-=6;
+            PRINT(i);//2
+        }
+        PRINT(i);//5
+    }
+    PRINT(i);//2
+}
+
+#include <stdio.h>
+#define PRINT(int) printf("%d\n", int);
+
+void main()
+{
+    auto int i=1;
+    {
+        int i=5;
+        PRINT(i); //5
+        {
+            int i=8;
+            PRINT(i);//8
+            i-=7;
+            PRINT(i);//1
+        }
+        PRINT(i);//5
+    }
+
+}
