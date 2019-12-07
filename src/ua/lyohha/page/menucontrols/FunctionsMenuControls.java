@@ -9,6 +9,7 @@ import ua.lyohha.tasks.functions.files.FilesTask;
 import ua.lyohha.tasks.functions.functionspart1.FunctionsPart1Task;
 import ua.lyohha.tasks.functions.functionspart2.FunctionsPart2Task;
 import ua.lyohha.tasks.functions.nestingblocks.NestingBlocksTask;
+import ua.lyohha.tasks.functions.squeeze.SqueezeTask;
 
 public class FunctionsMenuControls extends MenuControl {
 
@@ -32,6 +33,7 @@ public class FunctionsMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new FilesTask());
                 break;
             case 4:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new SqueezeTask());
                 break;
             case 5:
                 menuPage.navigation.navigateBack();
@@ -46,7 +48,7 @@ public class FunctionsMenuControls extends MenuControl {
                 "Классы памяти: функции (часть 1)",
                 "Классы памяти: функции (часть 2)",
                 "Классы памяти: Файлы",
-                "Функция Squeeze",
+                "Функция squeeze",
                 "Назад"};
     }
 

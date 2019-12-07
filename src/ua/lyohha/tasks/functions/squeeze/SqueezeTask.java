@@ -1,11 +1,11 @@
-package ua.lyohha.tasks.functions.files;
+package ua.lyohha.tasks.functions.squeeze;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
 import ua.lyohha.tasks.Task;
 
-public class FilesTask implements Task {
-    private String taskName = "Классы памяти: Файлы";
+public class SqueezeTask implements Task {
+    private String taskName = "Функция squeeze";
     private TemplateGenerator templateGenerator;
 
     @Override
