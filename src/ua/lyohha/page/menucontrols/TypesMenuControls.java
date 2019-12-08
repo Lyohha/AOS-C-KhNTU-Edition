@@ -6,6 +6,7 @@ import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.testing.TestingPage;
 import ua.lyohha.tasks.types.cast1.Cast1Task;
+import ua.lyohha.tasks.types.cast2.Cast2Task;
 
 public class TypesMenuControls extends MenuControl {
 
@@ -20,6 +21,7 @@ public class TypesMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new Cast1Task());
                 break;
             case 1:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new Cast2Task());
                 break;
             case 2:
                 break;
