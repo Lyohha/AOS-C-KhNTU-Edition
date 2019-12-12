@@ -57,6 +57,12 @@ public class CodeGenerator {
         return label;
     }
 
+    public static Label createPart(double number) {
+        Label label = new Label(Double.toString(number).replace(',', '.'));
+        label.getStyleClass().add("numbers");
+        return label;
+    }
+
     public static Label createPart(CodeGenerator.IDOperator operator, String variable) {
         switch (operator) {
             case SUFIXDECREMENT:
@@ -109,6 +115,21 @@ public class CodeGenerator {
     }
 
     public static int exeOperator(int a, int b, Operator op) {
+        switch (op) {
+            case MULTIPLICATION:
+                return a * b;
+            case DIFFERENCE:
+                return a - b;
+            case DIVISION:
+                return a / b;
+            case ADDITION:
+                return a + b;
+            default:
+                return 0;
+        }
+    }
+
+    public static double exeOperator(double a, double b, Operator op) {
         switch (op) {
             case MULTIPLICATION:
                 return a * b;

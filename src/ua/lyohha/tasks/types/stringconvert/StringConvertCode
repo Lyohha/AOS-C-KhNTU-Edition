@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void main()
+{
+	char *S;
+	int num;
+	S = (char*)malloc(sizeof(char)*10);
+	num = 6157;
+	itoa(num, S, 10);
+	S = strrev(S);
+	num = atoi(S);
+	printf("%d\n", num);
+}

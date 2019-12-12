@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char *S, *SS;
+	int index, len, pos;
+	S = "crvt";
+	SS = "crv"; //abc
+	len = strlen(S);
+	pos = strstr(SS, S);
+	index = pos == NULL?-1:pos;
+	printf("%d\n", len);
+	printf("%d\n", index);
+	S[1] = SS[2];
+	printf("%s\n", S);
+}

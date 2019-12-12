@@ -34,8 +34,7 @@ public class TemplateGenerator {
         setAnswers(variables);
     }
 
-    private void setAnswers(Variables variables)
-    {
+    private void setAnswers(Variables variables) {
         answers[0] = Integer.toString(variables.globalI);
         answers[1] = Integer.toString((variables.staticI += variables.n1));
         answers[2] = Integer.toString((variables.staticI -= variables.n2));
@@ -107,7 +106,7 @@ public class TemplateGenerator {
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("//file1.h")
+                CodeGenerator.createPart("//file1.h", CodeGenerator.CodeType.COMMENT)
         ));
 
         lines.add(new HBox(
@@ -204,7 +203,7 @@ public class TemplateGenerator {
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("//file2.h")
+                CodeGenerator.createPart("//file2.h", CodeGenerator.CodeType.COMMENT)
         ));
 
         lines.add(new HBox(

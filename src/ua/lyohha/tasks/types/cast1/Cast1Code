@@ -1,0 +1,36 @@
+#include <stdio.h>
+#define PRINT(x) printf("%.4g\n", (double)x)
+
+void main()
+{
+	double d;
+	float f;
+	int i;
+	long l;
+
+	i=l=f=d=142/5; PRINT(i);
+	d=f=l=i=69/2; PRINT(l);
+	i=l=f=d=70/3.; PRINT(f);
+	d=f=l=i=(double)109/2; PRINT(l);
+}
+
+//=====================
+//
+//=====================
+
+
+#include <stdio.h>
+#define PRINT(x) printf("%.4g\n", (double)x)
+
+void main()
+{
+	double d;
+	float f;
+	int i;
+	long l;
+
+	i=l=f=d=95/2; PRINT(d);
+	d=f=l=i=90/4; PRINT(d);
+	i=l=f=d=86/7.; PRINT(d);
+	d=f=l=i=(double)137/5; PRINT(d);
+}

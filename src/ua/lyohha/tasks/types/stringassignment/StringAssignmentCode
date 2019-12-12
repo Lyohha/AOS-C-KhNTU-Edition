@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char S[20], T[20], L[20];
+	int P;
+	strcpy(S, "s");
+	printf("%s\n", S);
+	stpcpy(T, "qq");
+	strcat(S,T);
+	printf("%s\n",S);
+	strcpy(L, "a");
+	P=strcmp(S,L) == 0;
+	printf("%d\n", P);
+	putchar(S[2]);
+}
