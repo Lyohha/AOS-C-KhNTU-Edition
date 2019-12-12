@@ -8,6 +8,7 @@ import ua.lyohha.page.testing.TestingPage;
 import ua.lyohha.tasks.types.cast1.Cast1Task;
 import ua.lyohha.tasks.types.cast2.Cast2Task;
 import ua.lyohha.tasks.types.stringassignment.StringAssignmentTask;
+import ua.lyohha.tasks.types.stringindexing.StringIndexingTask;
 
 public class TypesMenuControls extends MenuControl {
 
@@ -28,6 +29,7 @@ public class TypesMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new StringAssignmentTask());
                 break;
             case 3:
+                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new StringIndexingTask());
                 break;
             case 4:
                 break;
