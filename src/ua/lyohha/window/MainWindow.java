@@ -37,7 +37,7 @@ public class MainWindow extends Application {
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(500);
-        primaryStage.setTitle("AOS C");
+        primaryStage.setTitle("ATS-C KhNTU Edition");
         primaryStage.show();
     }
 }
