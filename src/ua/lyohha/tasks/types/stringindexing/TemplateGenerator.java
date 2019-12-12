@@ -82,18 +82,26 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("];")
         ));
 
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tprintf("),
+                CodeGenerator.createPart("\"%s\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", S);")
+        ));
+
         changeChar(variables, n1, n2);
 
         answers[2] = variables.S;
     }
 
-    private void changeChar(Variables variables, int n1, int n2)
-    {
+    private void changeChar(Variables variables, int n1, int n2) {
         StringBuilder builder = new StringBuilder();
-        if(n1 != 0)
+        if (n1 != 0)
             builder.append(variables.S.substring(0, n1));
-        builder.append(variables.SS.charAt(n2)),
+        builder.append(variables.SS.charAt(n2));
+        if (n1 != variables.S.length() - 1)
+            builder.append(variables.S.substring(n1 + 1));
 
+        variables.S = builder.toString();
     }
 
     private Variables createFirstsLine() {
@@ -178,9 +186,18 @@ public class TemplateGenerator {
     private String createString(int length) {
         StringBuilder
                 builder = new StringBuilder();
+        char c;
+        List<Character> symbols = new ArrayList<>();
+
+        for (int i = 0; i < length; i++) {
+            do {
+                c = (char) ('a' + random.nextInt(26));
+            } while (symbols.contains(c));
+            symbols.add(c);
+        }
 
         for (int i = 0; i < length; i++)
-            builder.append((char) ('a' + random.nextInt(26)));
+            builder.append(symbols.get(i));
 
         return builder.toString();
     }
