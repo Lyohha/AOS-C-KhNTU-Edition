@@ -17,8 +17,8 @@ public class MenuPage extends Page {
 
     private String[] items;
     private List<MenuItem> menuItems = new ArrayList<>();
-    private String styleClass = "MenuPage.css";
-    private String page = "MenuPage.fxml";
+    private String styleClass = "/page/menu/MenuPage.css";
+    private String page = "/page/menu/MenuPage.fxml";
     private MenuControl menuControl;
 
     public MenuPage() {

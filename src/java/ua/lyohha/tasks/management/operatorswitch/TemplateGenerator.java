@@ -1,6 +1,5 @@
 package ua.lyohha.tasks.management.operatorswitch;
 
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import ua.lyohha.tasks.CodeGenerator;

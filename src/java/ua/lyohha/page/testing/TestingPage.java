@@ -1,6 +1,5 @@
 package ua.lyohha.page.testing;
 
-import com.sun.org.apache.regexp.internal.RE;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestingPage extends Page {
-    private String styleClass = "TestingPage.css";
-    private String page = "TestingPage.fxml";
+    private String styleClass = "/page/testing/TestingPage.css";
+    private String page = "/page/testing/TestingPage.fxml";
     private Task task;
     private List<AnswerField> answerFields = new ArrayList<>();
 

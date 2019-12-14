@@ -4,8 +4,6 @@ import javafx.application.Platform;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 
-import java.util.Arrays;
-
 public class MainMenuControls extends MenuControl {
 
     public MainMenuControls(MenuPage menuPage) {
