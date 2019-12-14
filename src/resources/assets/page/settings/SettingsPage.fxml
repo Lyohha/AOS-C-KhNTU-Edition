@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ua.lyohha.page.settings.SettingsPage"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ua.lyohha.page.settings.SettingsPage"
+      prefHeight="800.0" prefWidth="600.0"
+      alignment="CENTER" styleClass="vbox-view">
+    <Label fx:id="menuNameLabel" styleClass="main-label-view"/>
+    <Label fx:id="themeLabel" styleClass="label-view">
+        <VBox.margin>
+            <Insets>
+                <top>10</top>
+            </Insets>
+        </VBox.margin>
+    </Label>
+    <ComboBox fx:id="themeComboBox" prefWidth="300" onAction="#themeComboBoxSelectionChanged"/>
 
-</AnchorPane>
+    <Label fx:id="languageLabel" styleClass="label-view">
+        <VBox.margin>
+            <Insets>
+                <top>10</top>
+            </Insets>
+        </VBox.margin>
+    </Label>
+    <ComboBox fx:id="languageComboBox" prefWidth="300" onAction="#languageComboBoxSelectionChanged"/>
+    <Button fx:id="backButton" styleClass="button-view" prefWidth="300"
+            onAction="#backButtonClick">
+        <VBox.margin>
+            <Insets>
+                <top>10</top>
+            </Insets>
+        </VBox.margin>
+    </Button>
+</VBox>

@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import ua.lyohha.language.Language;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
+import ua.lyohha.page.settings.SettingsPage;
 
 public class MainMenuControls extends MenuControl {
 
@@ -27,6 +28,7 @@ public class MainMenuControls extends MenuControl {
                 new TypesMenuControls((MenuPage) menuPage.navigation.navigateTo(MenuPage.class));
                 break;
             case 4:
+                menuPage.navigation.navigateTo(SettingsPage.class);
                 break;
             case 5:
                 Platform.exit();

@@ -13,6 +13,19 @@ public class Language {
     private static HashMap<String, HashMap<String, String>> langMap;
     private static List<String> languagesNames;
     private static String language;
+    private static List<LanguageChangeEvent> events;
+
+    public static void load() {
+        events = new ArrayList<>();
+    }
+
+    public static void addEvent(LanguageChangeEvent event) {
+        events.add(event);
+    }
+
+    public static void removeEvent(LanguageChangeEvent event) {
+        events.remove(event);
+    }
 
     //TODO remove not needed println
 
@@ -162,11 +175,14 @@ public class Language {
     }
 
     public static String[] getLanguages() {
-        return (String[]) languagesNames.toArray();
+        String[] items = new String[languagesNames.size()];
+        items = languagesNames.toArray(items);
+        return items;
     }
 
     public static void setLanguage(String lang) {
         language = lang;
+        for (LanguageChangeEvent event : events) event.onLanguageChange();
     }
 
     public static String getLocalized(String str) {
@@ -174,5 +190,9 @@ public class Language {
             if (langMap.get(language).containsKey(str))
                 return langMap.get(language).get(str);
         return str;
+    }
+
+    public static String getLanguage() {
+        return language;
     }
 }

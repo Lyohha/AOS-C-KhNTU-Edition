@@ -1,0 +1,25 @@
+.main-label-view {
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+}
+
+.label-view {
+    -fx-text-fill: "#CFCFCF";
+    -fx-font-size: 16;
+}
+
+.button-view {
+    -fx-background-color: Transparent;
+    -fx-border-insets: 0 10 0 0;
+    -fx-font-size: 16;
+    -fx-text-fill: "#CFCFCF";
+    -fx-background-radius: 0px;
+}
+
+.button-view:hover {
+    -fx-background-color: "#363636";
+}
+
+.vbox-view {
+    -fx-background-color: "#262626";
+}

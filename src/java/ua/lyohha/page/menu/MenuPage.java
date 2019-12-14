@@ -7,13 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import ua.lyohha.language.LanguageChangeEvent;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.Page;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuPage extends Page {
+public class MenuPage extends Page implements LanguageChangeEvent {
 
     private String[] items;
     private List<MenuItem> menuItems = new ArrayList<>();
@@ -90,6 +91,12 @@ public class MenuPage extends Page {
     @Override
     public void initializeComponent() {
 
+    }
+
+    @Override
+    public void onLanguageChange() {
+        setMenuName(menuControl.getMenuName());
+        setItems(menuControl.getItems());
     }
 
     private class MenuItem implements EventHandler<ActionEvent> {

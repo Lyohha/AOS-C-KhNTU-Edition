@@ -8,10 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import ua.lyohha.language.Language;
+import ua.lyohha.language.LanguageChangeEvent;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.menucontrols.MainMenuControls;
 
-public class MainWindow extends Application {
+public class MainWindow extends Application implements LanguageChangeEvent {
 
     public Label universityNameLabel;
     public GridPane frameGridPane;
@@ -24,11 +25,14 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Language.load();
         Language.loadLanguageList();
         Language.setLanguage("English");
+
         FXMLLoader mainWindowLoader = new FXMLLoader();
         Parent root = mainWindowLoader.load(getClass().getResource("/assets/window/MainWindow.fxml").openStream());
         MainWindow mainWindow = mainWindowLoader.getController();
+        Language.addEvent(mainWindow);
         mainWindow.universityNameLabel.setText(Language.getLocalized("university.name"));
         navigation = new Navigation(mainWindow.frameGridPane);
         mainWindow.mainGridPane.setStyle("-fx-background-color: \"#3C3F41\"");
@@ -43,5 +47,10 @@ public class MainWindow extends Application {
         primaryStage.setMinHeight(500);
         primaryStage.setTitle("ATS-C KhNTU Edition");
         primaryStage.show();
+    }
+
+    @Override
+    public void onLanguageChange() {
+        universityNameLabel.setText(Language.getLocalized("university.name"));
     }
 }
