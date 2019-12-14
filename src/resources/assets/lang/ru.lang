@@ -1,0 +1,10 @@
+language.name=Русский
+
+university.name=Херсонский национальный технический университет
+main_menu.name=Главное меню
+main_menu.item1.name=Операции
+main_menu.item2.name=Управление
+main_menu.item3.name=Блоки и функции
+main_menu.item4.name=Простые типы и строки
+main_menu.item5.name=Настройки
+main_menu.item6.name=Выход

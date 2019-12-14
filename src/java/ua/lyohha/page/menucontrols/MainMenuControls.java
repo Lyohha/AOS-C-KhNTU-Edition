@@ -1,6 +1,7 @@
 package ua.lyohha.page.menucontrols;
 
 import javafx.application.Platform;
+import ua.lyohha.language.Language;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 
@@ -26,6 +27,8 @@ public class MainMenuControls extends MenuControl {
                 new TypesMenuControls((MenuPage) menuPage.navigation.navigateTo(MenuPage.class));
                 break;
             case 4:
+                break;
+            case 5:
                 Platform.exit();
                 break;
         }
@@ -33,11 +36,18 @@ public class MainMenuControls extends MenuControl {
 
     @Override
     public String[] getItems() {
-        return new String[]{"Операции", "Управление", "Блоки и функции", "Простые типы и строки", "Выход"};
+        return new String[]{
+                Language.getLocalized("main_menu.item1.name"),
+                Language.getLocalized("main_menu.item2.name"),
+                Language.getLocalized("main_menu.item3.name"),
+                Language.getLocalized("main_menu.item4.name"),
+                Language.getLocalized("main_menu.item5.name"),
+                Language.getLocalized("main_menu.item6.name"),
+        };
     }
 
     @Override
     public String getMenuName() {
-        return "Выбор темы";
+        return Language.getLocalized("main_menu.name");
     }
 }

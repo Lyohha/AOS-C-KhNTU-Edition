@@ -1,0 +1,10 @@
+language.name=English
+
+university.name=Khersonal National Technical University
+main_menu.name=Main Menu
+main_menu.item1.name=Operation
+main_menu.item2.name=Control
+main_menu.item3.name=Blocks and Functions
+main_menu.item4.name=Primitive Types and Strings
+main_menu.item5.name=Settings
+main_menu.item6.name=Exit

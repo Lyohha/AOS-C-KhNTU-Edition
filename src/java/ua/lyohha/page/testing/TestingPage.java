@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestingPage extends Page {
-    private String styleClass = "/page/testing/TestingPage.css";
-    private String page = "/page/testing/TestingPage.fxml";
+    private String styleClass = "/assets/page/testing/TestingPage.css";
+    private String page = "/assets/page/testing/TestingPage.fxml";
     private Task task;
     private List<AnswerField> answerFields = new ArrayList<>();
 
