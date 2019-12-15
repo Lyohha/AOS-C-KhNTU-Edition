@@ -21,6 +21,7 @@ import java.util.List;
 public class TestingPage extends Page {
     private String styleClassDark = "/assets/page/testing/TestingPageDark.css";
     private String styleClassLight = "/assets/page/testing/TestingPageLight.css";
+    private String styleClassAnime = "/assets/page/testing/TestingPageAnime.css";
     private String page = "/assets/page/testing/TestingPage.fxml";
     private Task task;
     private List<AnswerField> answerFields = new ArrayList<>();
@@ -119,6 +120,7 @@ public class TestingPage extends Page {
             //поле ввода
             TextField textField = new TextField();
             textField.prefWidth(140);
+            textField.setPrefHeight(30);
             HBox.setMargin(textField, new Insets(0, 5, 0, 5));
             textField.getStyleClass().add("text-field-view");
 
@@ -126,7 +128,8 @@ public class TestingPage extends Page {
             Label label = new Label();
             label.prefWidth(140);
             label.setMinWidth(140);
-            HBox.setMargin(label, new Insets(4, 5, 0, 5));
+            label.setPrefHeight(30);
+            HBox.setMargin(label, new Insets(1, 5, 0, 5));
             //label.getStyleClass().add("label-view");
             label.setTextAlignment(TextAlignment.CENTER);
             label.setAlignment(Pos.CENTER);
@@ -153,6 +156,8 @@ public class TestingPage extends Page {
         switch (Themes.getTheme()) {
             case LIGHT:
                 return styleClassLight;
+            case ANIME:
+                return styleClassAnime;
             case DARK:
             default:
                 return styleClassDark;
@@ -162,6 +167,11 @@ public class TestingPage extends Page {
     @Override
     public String getPage() {
         return page;
+    }
+
+    @Override
+    public String getImage() {
+        return null;
     }
 
     @Override

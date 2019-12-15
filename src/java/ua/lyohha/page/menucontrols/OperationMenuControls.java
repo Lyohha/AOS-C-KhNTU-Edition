@@ -38,6 +38,11 @@ public class OperationMenuControls extends MenuControl {
     }
 
     @Override
+    public String getImage() {
+        return "img3.jpg";
+    }
+
+    @Override
     public String[] getItems() {
         return new String[]{
                 Language.getLocalized("operation_menu.item1.name"),

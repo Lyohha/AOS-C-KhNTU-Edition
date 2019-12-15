@@ -42,6 +42,11 @@ public class ManagementMenuControls extends MenuControl {
     }
 
     @Override
+    public String getImage() {
+        return null;
+    }
+
+    @Override
     public String[] getItems() {
         return new String[]{
                 Language.getLocalized("management_menu.item1.name"),

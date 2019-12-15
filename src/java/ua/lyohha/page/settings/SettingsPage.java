@@ -15,6 +15,7 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
     private boolean blockThemeComboBox = false;
     private String styleClassDark = "/assets/page/settings/SettingsPageDark.css";
     private String styleClassLight = "/assets/page/settings/SettingsPageLight.css";
+    private String styleClassAnime = "/assets/page/settings/SettingsPageAnime.css";
     private String page = "/assets/page/settings/SettingsPage.fxml";
 
     public ComboBox themeComboBox;
@@ -34,6 +35,8 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
         switch (Themes.getTheme()) {
             case LIGHT:
                 return styleClassLight;
+            case ANIME:
+                return styleClassAnime;
             case DARK:
             default:
                 return styleClassDark;
@@ -43,6 +46,11 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
     @Override
     public String getPage() {
         return page;
+    }
+
+    @Override
+    public String getImage() {
+        return "img2.jpg";
     }
 
     @Override

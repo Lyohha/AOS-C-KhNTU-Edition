@@ -7,11 +7,13 @@ public abstract class MenuControl {
     protected MenuPage menuPage;
 
     public MenuControl(MenuPage menuPage) {
-        menuPage.setControlSelected(this);
         this.menuPage = menuPage;
+        this.menuPage.setControlSelected(this);
     }
 
     public abstract void onItemSelected(int item);
+
+    public abstract String getImage();
 
     public String[] getItems() {
         return null;

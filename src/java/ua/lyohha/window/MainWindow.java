@@ -67,6 +67,7 @@ public class MainWindow extends Application implements LanguageChangeEvent, Them
 
         switch (Themes.getTheme()) {
             case LIGHT:
+            case ANIME:
                 mainWindow.mainGridPane.setStyle("-fx-background-color: \"#EAEAEA\"");
                 mainWindow.universityNameLabel.setStyle("-fx-text-fill: black");
                 break;

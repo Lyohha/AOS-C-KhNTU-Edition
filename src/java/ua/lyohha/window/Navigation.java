@@ -2,8 +2,8 @@ package ua.lyohha.window;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import ua.lyohha.page.Page;
 import ua.lyohha.themes.ThemeChangeEvent;
 import ua.lyohha.themes.Themes;
@@ -51,7 +51,7 @@ public class Navigation implements ThemeChangeEvent {
                 pageContent.getStylesheets().add(c.getResource(((Page) o).getStyleClass()).toExternalForm());
             GridPane.setRowIndex(pageContent, 0);
             pages.add(pageContent);
-            oPages.add((Page) o);
+            oPages.add(loader.getController());
             ((Page) loader.getController()).navigation = this;
             ((Page) loader.getController()).initializeComponent();
             updateView();
@@ -64,6 +64,27 @@ public class Navigation implements ThemeChangeEvent {
         if (pages.size() != 0) {
             pane.getChildren().clear();
             pane.getChildren().add(pages.get(pages.size() - 1));
+            setImage(oPages.get(oPages.size() - 1).getImage());
+        }
+    }
+
+    public void setImage(String img) {
+        try {
+            if (img != null) {
+                pane.setBackground(
+                        new Background(
+                                new BackgroundImage(
+                                        new Image(getClass().getResourceAsStream("/assets/img/" + img)),
+                                        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                                        new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, false)
+
+                                )
+                        )
+                );
+            }
+        } catch (Exception ex) {
+            System.out.println("not set image");
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -95,5 +116,6 @@ public class Navigation implements ThemeChangeEvent {
                         .add(oPages.get(i).getClass()
                                 .getResource(oPages.get(i).getStyleClass()).toExternalForm());
         }
+        setImage(oPages.get(oPages.size() - 1).getImage());
     }
 }

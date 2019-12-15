@@ -12,5 +12,7 @@ public abstract class Page {
 
     public abstract String getPage();
 
+    public abstract String getImage();
+
     public abstract void initializeComponent();
 }

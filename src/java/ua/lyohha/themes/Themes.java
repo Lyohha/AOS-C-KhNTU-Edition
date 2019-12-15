@@ -16,6 +16,8 @@ public class Themes {
                 return "themes.theme_dark.name";
             case LIGHT:
                 return "themes.theme_light.name";
+            case ANIME:
+                return "themes.theme_anime.name";
             default:
                 return "themes.theme_none.name";
         }
@@ -33,6 +35,9 @@ public class Themes {
             case "LIGHT":
                 theme = Theme.LIGHT;
                 break;
+            case "ANIME":
+                theme = Theme.ANIME;
+                break;
             case "DARK":
             default:
                 theme = Theme.DARK;
@@ -44,6 +49,8 @@ public class Themes {
         switch (theme) {
             case LIGHT:
                 return "LIGHT";
+            case ANIME:
+                return "ANIME";
             case DARK:
             default:
                 return "DARK";
@@ -71,7 +78,8 @@ public class Themes {
 
     public enum Theme {
         DARK,
-        LIGHT
+        LIGHT,
+        ANIME
     }
 
     public static Theme[] getThemes() {

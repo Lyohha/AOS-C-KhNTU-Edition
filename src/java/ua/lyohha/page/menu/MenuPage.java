@@ -21,8 +21,12 @@ public class MenuPage extends Page implements LanguageChangeEvent {
     private List<MenuItem> menuItems = new ArrayList<>();
     private String styleClassDark = "/assets/page/menu/MenuPageDark.css";
     private String styleClassLight = "/assets/page/menu/MenuPageLight.css";
+    private String styleClassAnime = "/assets/page/menu/MenuPageAnime.css";
     private String page = "/assets/page/menu/MenuPage.fxml";
-    private MenuControl menuControl;
+    private MenuControl menuControl = null;
+
+    public VBox mainVBox;
+    public Label menuNameLabel;
 
     public MenuPage() {
 
@@ -70,10 +74,9 @@ public class MenuPage extends Page implements LanguageChangeEvent {
         this.menuControl = menuControl;
         setItems(menuControl.getItems());
         setMenuName(menuControl.getMenuName());
+        navigation.setImage(this.menuControl.getImage());
     }
 
-    public VBox mainVBox;
-    public Label menuNameLabel;
 
     @Override
     public Parent getParent() {
@@ -86,6 +89,8 @@ public class MenuPage extends Page implements LanguageChangeEvent {
         switch (Themes.getTheme()) {
             case LIGHT:
                 return styleClassLight;
+            case ANIME:
+                return styleClassAnime;
             case DARK:
             default:
                 return styleClassDark;
@@ -95,6 +100,11 @@ public class MenuPage extends Page implements LanguageChangeEvent {
     @Override
     public String getPage() {
         return page;
+    }
+
+    @Override
+    public String getImage() {
+        return menuControl == null ? null : menuControl.getImage();
     }
 
     @Override

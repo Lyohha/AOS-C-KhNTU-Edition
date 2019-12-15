@@ -5,6 +5,7 @@ import ua.lyohha.language.Language;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.settings.SettingsPage;
+import ua.lyohha.themes.Themes;
 
 public class MainMenuControls extends MenuControl {
 
@@ -35,6 +36,11 @@ public class MainMenuControls extends MenuControl {
                 Platform.exit();
                 break;
         }
+    }
+
+    @Override
+    public String getImage() {
+        return Themes.getTheme() == Themes.Theme.ANIME ? "img1.jpg" : null;
     }
 
     @Override

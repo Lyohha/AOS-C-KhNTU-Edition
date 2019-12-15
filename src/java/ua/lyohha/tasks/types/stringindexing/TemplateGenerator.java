@@ -96,7 +96,7 @@ public class TemplateGenerator {
     private void changeChar(Variables variables, int n1, int n2) {
         StringBuilder builder = new StringBuilder();
         if (n1 != 0)
-            builder.append(variables.S.substring(0, n1));
+            builder.append(variables.S, 0, n1);
         builder.append(variables.SS.charAt(n2));
         if (n1 != variables.S.length() - 1)
             builder.append(variables.S.substring(n1 + 1));
@@ -154,10 +154,10 @@ public class TemplateGenerator {
         variables.S = createString();
         variables.type = random.nextInt(2);
         if (variables.type == 0) {
-            variables.index = variables.S.length() - (random.nextInt(variables.S.length() - 2) + 1);
+            variables.index = variables.S.length() - (random.nextInt(variables.S.length() - 1) + 1);
             variables.SS = variables.S.substring(variables.index);
         } else {
-            variables.SS = createString(random.nextInt(variables.S.length() - 2) + 1);
+            variables.SS = createString(random.nextInt(variables.S.length() - 1) + 1);
         }
 
         lines.add(new HBox(

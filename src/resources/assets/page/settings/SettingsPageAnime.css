@@ -1,0 +1,56 @@
+.main-label-view {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-text-fill: black;
+    -fx-font-size: 18;
+}
+
+.label-view {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-text-fill: "#282828";
+    -fx-font-size: 16;
+}
+
+.button-view {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-border-insets: 0 10 0 0;
+    -fx-font-size: 16;
+    -fx-text-fill: "#282828";
+    -fx-background-radius: 0px;
+}
+
+.button-view:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}
+
+.vbox-view {
+    -fx-background-color: Transparent;
+}
+
+.combo-box {
+    -fx-border-color: "#D3D3D3";
+    -fx-border-width: 1;
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: "#282828";
+    -fx-font-size: 16;
+}
+
+.combo-box .list-view .list-cell {
+    -fx-text-fill: "#282828";
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-font-size: 16;
+}
+
+.combo-box .list-view .list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}
+
+.combo-box .list-view .list-cell:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}
+
+.combo-box:hover {
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+}
