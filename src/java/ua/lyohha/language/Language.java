@@ -37,10 +37,8 @@ public class Language {
         try {
             path = URLDecoder.decode(path, "UTF-8");
         } catch (UnsupportedEncodingException ex) {
-            System.out.println();
+            System.out.println(ex.getMessage());
         }
-
-        System.out.println(path);
 
         if (path.startsWith("file")) {
             String[] paths = split(path);
