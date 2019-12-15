@@ -2,10 +2,11 @@ package ua.lyohha.tasks.types.cast1;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class Cast1Task implements Task {
-    private String taskName = "Приведение типов (1)";
+    private String taskName = Language.getLocalized("types_menu.item1.name");
     private TemplateGenerator templateGenerator;
 
     @Override

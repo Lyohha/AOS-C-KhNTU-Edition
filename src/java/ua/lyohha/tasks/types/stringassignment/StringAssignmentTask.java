@@ -2,10 +2,11 @@ package ua.lyohha.tasks.types.stringassignment;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class StringAssignmentTask implements Task {
-    private String taskName = "Строки: strcat, strcmp, присваивание";
+    private String taskName = Language.getLocalized("types_menu.item3.name");
     private TemplateGenerator templateGenerator;
 
     @Override

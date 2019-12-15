@@ -2,10 +2,11 @@ package ua.lyohha.tasks.management.loopwhileanddowhile;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class LoopWhileAndDoWhileTask implements Task {
-    private String taskName = "Операторы цикла while и do-while";
+    private String taskName = Language.getLocalized("management_menu.item2.name");
     private TemplateGenerator templateGenerator;
 
     @Override

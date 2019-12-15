@@ -1,0 +1,57 @@
+language.name=Українська
+
+university.name=Херсонський національний технічний університет
+main_menu.name=Головне меню
+main_menu.item1.name=Операції
+main_menu.item2.name=Управління
+main_menu.item3.name=Блоки та функції
+main_menu.item4.name=Прості типи та строки
+main_menu.item5.name=Налаштування
+main_menu.item6.name=Вихід
+
+settings_menu.name=Налаштування
+settings_menu.theme.name=Тема
+settings_menu.language.name=Мова
+settings_menu.back_button.text=Назад
+settings_menu.theme_dark.name=Темна
+settings_menu.theme_light.name=Світла
+
+functions_menu.name=Блоки та функції
+functions_menu.item1.name=Класи пам'яті: вкладенність блоків
+functions_menu.item2.name=Класи пам'яті: функції (частина 1)
+functions_menu.item3.name=Класи пам'яті: функції (частина 2)
+functions_menu.item4.name=Класи пам'яті: файли
+functions_menu.item5.name=Функція squeeze
+functions_menu.item6.name=Назад
+
+management_menu.name=Управління
+management_menu.item1.name=Умовний оператор if-else
+management_menu.item2.name=Операції циклу while та do-while
+management_menu.item3.name=Оператор циклу for
+management_menu.item4.name=Оператор switch
+management_menu.item5.name=Вкладенність операторів
+management_menu.item6.name=Назад
+
+operation_menu.name=Операції
+operation_menu.item1.name=Операції присвоювання
+operation_menu.item2.name=Операції логіки та збільшення
+operation_menu.item3.name=Операції відношення та умов
+operation_menu.item4.name=Вирази логіки
+operation_menu.item5.name=Назад
+
+types_menu.name=Прості типи та строки
+types_menu.item1.name=Приведення типів (частина 1)
+types_menu.item2.name=Приведення типів (частина 2)
+types_menu.item3.name=Функції strcat, strcmp
+types_menu.item4.name=Функції strlen, strstr
+types_menu.item5.name=Функції itoa, strrev, atoi
+types_menu.item6.name=Назад
+
+testing_page.right.text=вірно
+testing_page.wrong.text=невірно
+testing_page.answer.text=Відповідь
+testing_page.result.text=Результат
+testing_page.check_button.text=Перевірти
+testing_page.right_answer_button.text=Правильні відповіді
+testing_page.menu_button.text=В меню
+testing_page.next_button.text=Наступне

@@ -2,10 +2,11 @@ package ua.lyohha.tasks.functions.squeeze;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class SqueezeTask implements Task {
-    private String taskName = "Функция squeeze";
+    private String taskName = Language.getLocalized("functions_menu.item5.name");
     private TemplateGenerator templateGenerator;
 
     @Override

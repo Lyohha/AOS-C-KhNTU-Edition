@@ -2,6 +2,7 @@ package ua.lyohha.page.menucontrols;
 
 //Операции
 
+import ua.lyohha.language.Language;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.testing.TestingPage;
@@ -19,16 +20,16 @@ public class OperationMenuControls extends MenuControl {
     public void onItemSelected(int item) {
         switch (item) {
             case 0:
-                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new AssignmentOperationsTask());
+                ((TestingPage) menuPage.navigation.navigateTo(TestingPage.class)).setTask(new AssignmentOperationsTask());
                 break;
             case 1:
-                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LogicalAndIncreaseOperationsTask());
+                ((TestingPage) menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LogicalAndIncreaseOperationsTask());
                 break;
             case 2:
-                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new RelationsAndConditionsOperationsTask());
+                ((TestingPage) menuPage.navigation.navigateTo(TestingPage.class)).setTask(new RelationsAndConditionsOperationsTask());
                 break;
             case 3:
-                ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LogicalExpressionsTask());
+                ((TestingPage) menuPage.navigation.navigateTo(TestingPage.class)).setTask(new LogicalExpressionsTask());
                 break;
             case 4:
                 menuPage.navigation.navigateBack();
@@ -39,15 +40,16 @@ public class OperationMenuControls extends MenuControl {
     @Override
     public String[] getItems() {
         return new String[]{
-                "Операции присваивания",
-                "Операции: логические и увеличения",
-                "Операции отношения и условия",
-                "Логические выражения",
-                "Назад"};
+                Language.getLocalized("operation_menu.item1.name"),
+                Language.getLocalized("operation_menu.item2.name"),
+                Language.getLocalized("operation_menu.item3.name"),
+                Language.getLocalized("operation_menu.item4.name"),
+                Language.getLocalized("operation_menu.item5.name"),
+        };
     }
 
     @Override
     public String getMenuName() {
-        return "Операции";
+        return Language.getLocalized("operation_menu.name");
     }
 }

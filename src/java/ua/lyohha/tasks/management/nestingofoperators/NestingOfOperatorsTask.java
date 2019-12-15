@@ -2,10 +2,11 @@ package ua.lyohha.tasks.management.nestingofoperators;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class NestingOfOperatorsTask implements Task {
-    private String taskName = "Вложенность операторов";
+    private String taskName = Language.getLocalized("management_menu.item5.name");
     private TemplateGenerator templateGenerator;
 
     @Override

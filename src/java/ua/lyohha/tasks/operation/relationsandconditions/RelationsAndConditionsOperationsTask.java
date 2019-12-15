@@ -2,10 +2,11 @@ package ua.lyohha.tasks.operation.relationsandconditions;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class RelationsAndConditionsOperationsTask implements Task {
-    private String taskName = "Операции присваивания";
+    private String taskName = Language.getLocalized("operation_menu.item3.name");
     private TemplateGenerator templateGenerator;
 
     @Override

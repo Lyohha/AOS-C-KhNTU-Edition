@@ -2,10 +2,11 @@ package ua.lyohha.tasks.functions.nestingblocks;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class NestingBlocksTask implements Task {
-    private String taskName = "Классы памяти: вложенность блоков";
+    private String taskName = Language.getLocalized("functions_menu.item1.name");
     private TemplateGenerator templateGenerator;
 
     @Override
