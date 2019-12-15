@@ -1,6 +1,7 @@
 package ua.lyohha.language;
 
 import org.jetbrains.annotations.NotNull;
+import ua.lyohha.options.Options;
 
 import java.io.*;
 import java.net.URLDecoder;
@@ -179,8 +180,30 @@ public class Language {
     }
 
     public static void setLanguage(String lang) {
-        language = lang;
-        for (LanguageChangeEvent event : events) event.onLanguageChange();
+
+        lang = checkLang(lang);
+        if (lang != null) {
+            Options.put("language", lang);
+            language = lang;
+            for (LanguageChangeEvent event : events) event.onLanguageChange();
+        }
+    }
+
+    private static String checkLang(String lang) {
+        if (lang == null) {
+            if (languagesNames.contains("English"))
+                lang = "English";
+            else if (languagesNames.size() > 0)
+                lang = languagesNames.get(0);
+        } else {
+            if (!languagesNames.contains(lang)) {
+                if (languagesNames.contains("English"))
+                    lang = "English";
+                else if (languagesNames.size() > 0)
+                    lang = languagesNames.get(0);
+            }
+        }
+        return lang;
     }
 
     public static String getLocalized(@NotNull String str) {

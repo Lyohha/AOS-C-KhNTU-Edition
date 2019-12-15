@@ -1,5 +1,7 @@
 package ua.lyohha.themes;
 
+import ua.lyohha.options.Options;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,35 @@ public class Themes {
         }
     }
 
+    public static void setTheme(String name) {
+
+        if (name == null) {
+            theme = Theme.DARK;
+            Options.put("theme", getName());
+            return;
+        }
+
+        switch (name) {
+            case "LIGHT":
+                theme = Theme.LIGHT;
+                break;
+            case "DARK":
+            default:
+                theme = Theme.DARK;
+                break;
+        }
+    }
+
+    private static String getName() {
+        switch (theme) {
+            case LIGHT:
+                return "LIGHT";
+            case DARK:
+            default:
+                return "DARK";
+        }
+    }
+
     public static void addEvent(ThemeChangeEvent event) {
         events.add(event);
     }
@@ -35,6 +66,7 @@ public class Themes {
         theme = th;
         for (int i = 0; i < events.size(); i++)
             events.get(i).onThemeChange();
+        Options.put("theme", getName());
     }
 
     public enum Theme {

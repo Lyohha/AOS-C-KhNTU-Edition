@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import ua.lyohha.language.Language;
 import ua.lyohha.language.LanguageChangeEvent;
+import ua.lyohha.options.Options;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.menucontrols.MainMenuControls;
 import ua.lyohha.themes.ThemeChangeEvent;
@@ -27,10 +28,11 @@ public class MainWindow extends Application implements LanguageChangeEvent, Them
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Options.load();
         Language.load();
         Language.loadLanguageList();
-        Language.setLanguage("English");
-        Themes.setTheme(Themes.Theme.DARK);
+        Language.setLanguage(Options.get("language"));
+        Themes.setTheme(Options.get("theme"));
 
         FXMLLoader mainWindowLoader = new FXMLLoader();
         Parent root = mainWindowLoader.load(getClass().getResource("/assets/window/MainWindow.fxml").openStream());
