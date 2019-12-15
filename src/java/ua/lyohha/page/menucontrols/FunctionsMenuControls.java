@@ -2,6 +2,7 @@ package ua.lyohha.page.menucontrols;
 
 //Блоки и функции
 
+import ua.lyohha.language.Language;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.testing.TestingPage;
@@ -36,6 +37,7 @@ public class FunctionsMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new SqueezeTask());
                 break;
             case 5:
+                Language.removeEvent(this.menuPage);
                 menuPage.navigation.navigateBack();
                 break;
         }
@@ -44,16 +46,17 @@ public class FunctionsMenuControls extends MenuControl {
     @Override
     public String[] getItems() {
         return new String[]{
-                "Классы памяти: вложенность блоков",
-                "Классы памяти: функции (часть 1)",
-                "Классы памяти: функции (часть 2)",
-                "Классы памяти: Файлы",
-                "Функция squeeze",
-                "Назад"};
+                Language.getLocalized("functions_menu.item1.name"),
+                Language.getLocalized("functions_menu.item2.name"),
+                Language.getLocalized("functions_menu.item3.name"),
+                Language.getLocalized("functions_menu.item4.name"),
+                Language.getLocalized("functions_menu.item5.name"),
+                Language.getLocalized("functions_menu.item6.name")
+                };
     }
 
     @Override
     public String getMenuName() {
-        return "Блоки и функции";
+        return Language.getLocalized("functions_menu.name");
     }
 }

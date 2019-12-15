@@ -156,9 +156,12 @@ public class TemplateGenerator {
         do {
             ido2 = CodeGenerator.IDOperator.values()[random.nextInt(CodeGenerator.IDOperator.values().length)];
         }
-        while (variables.y == 1 &&
+        while ((variables.y == 1 &&
                 o2 == CodeGenerator.Operator.DIVISION &&
-                ido2 == CodeGenerator.IDOperator.PREFIXDECREMENT);
+                ido2 == CodeGenerator.IDOperator.PREFIXDECREMENT) ||
+                (variables.y == 0 &&
+                o2 == CodeGenerator.Operator.DIVISION &&
+                (ido2 == CodeGenerator.IDOperator.SUFIXDECREMENT || ido2 == CodeGenerator.IDOperator.SUFIXINCREMENT)));
 
 
         int n1;

@@ -2,10 +2,11 @@ package ua.lyohha.tasks.operation.logicalexpressions;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class LogicalExpressionsTask implements Task {
-    private String taskName = "Логические выражения";
+    private String taskName = Language.getLocalized("operation_menu.item4.name");
     private TemplateGenerator templateGenerator;
 
     @Override

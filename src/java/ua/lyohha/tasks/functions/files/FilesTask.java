@@ -2,10 +2,11 @@ package ua.lyohha.tasks.functions.files;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class FilesTask implements Task {
-    private String taskName = "Классы памяти: Файлы";
+    private String taskName = Language.getLocalized("functions_menu.item4.name");
     private TemplateGenerator templateGenerator;
 
     @Override

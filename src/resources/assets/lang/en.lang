@@ -15,3 +15,43 @@ settings_menu.language.name=Language
 settings_menu.back_button.text=Back
 settings_menu.theme_dark.name=Dark
 settings_menu.theme_light.name=Light
+
+functions_menu.name=Blocks and Functions
+functions_menu.item1.name=Memory Classes: Nesting Blocks
+functions_menu.item2.name=Memory Classes: Functions (part 1)
+functions_menu.item3.name=Memory Classes: Functions (part 2)
+functions_menu.item4.name=Memory Classes: Files
+functions_menu.item5.name=Squeeze Function
+functions_menu.item6.name=Back
+
+management_menu.name=Control
+management_menu.item1.name=Conditional Operator If-Else
+management_menu.item2.name=While and Do-While Loop Operators
+management_menu.item3.name=Cycle Operator For
+management_menu.item4.name=Operator Switch
+management_menu.item5.name=Nesting of Operators
+management_menu.item6.name=Back
+
+operation_menu.name=Operation
+operation_menu.item1.name=Assignment Operations
+operation_menu.item2.name=Logical and Increases Operations
+operation_menu.item3.name=Relationship Operations and Conditions
+operation_menu.item4.name=Logical Expressions
+operation_menu.item5.name=Back
+
+types_menu.name=Primitive Types and Strings
+types_menu.item1.name=Type Casting (part 1)
+types_menu.item2.name=Type Casting (part 2)
+types_menu.item3.name=Strings: Strcat, Strcmp, Assignment
+types_menu.item4.name=Strings: Strlen, Strstr, Indexing
+types_menu.item5.name=Strings: Itoa, Strrev, Atoi
+types_menu.item6.name=Back
+
+testing_page.right.text=right
+testing_page.wrong.text=wrong
+testing_page.answer.text=Answer
+testing_page.result.text=Result
+testing_page.check_button.text=Check
+testing_page.right_answer_button.text=Right Answers
+testing_page.menu_button.text=Back in Menu
+testing_page.next_button.text=Next

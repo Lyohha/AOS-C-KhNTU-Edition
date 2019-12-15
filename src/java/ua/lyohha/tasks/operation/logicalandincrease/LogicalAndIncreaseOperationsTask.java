@@ -1,10 +1,11 @@
 package ua.lyohha.tasks.operation.logicalandincrease;
 
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class LogicalAndIncreaseOperationsTask implements Task {
-    private String taskName = "Операции: логические и увеличения";
+    private String taskName = Language.getLocalized("operation_menu.item2.name");
     private TemplateGenerator templateGenerator;
 
     @Override

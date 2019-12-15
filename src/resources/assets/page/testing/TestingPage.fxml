@@ -43,9 +43,9 @@
 
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
         <HBox>
-            <Label alignment="CENTER" textAlignment="CENTER" text="Ответ" wrapText="true" styleClass="label-view"
+            <Label fx:id="answerLabel" alignment="CENTER" textAlignment="CENTER" text="Ответ" wrapText="true" styleClass="label-view"
                    prefWidth="150"/>
-            <Label alignment="CENTER" textAlignment="CENTER" text="Результат" wrapText="true" styleClass="label-view"
+            <Label fx:id="resultLabel" alignment="CENTER" textAlignment="CENTER" text="Результат" wrapText="true" styleClass="label-view"
                    prefWidth="150"/>
         </HBox>
         <VBox fx:id="answersVBox">

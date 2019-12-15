@@ -1,5 +1,7 @@
 package ua.lyohha.language;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.*;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -28,8 +30,6 @@ public class Language {
         events.remove(event);
     }
 
-    //TODO remove not needed println
-
     public static void loadLanguageList() {
         List<String> filesList = new ArrayList<>();
         String path = Language.class.getClassLoader().getResource("assets/lang").getPath();
@@ -51,7 +51,6 @@ public class Language {
                     if (name.startsWith(paths[1])) {
                         if (name.length() > paths[1].length()) {
                             String fileName = getFileName(name);
-                            System.out.println(fileName);
                             filesList.add(fileName);
                         }
                     }
@@ -66,7 +65,6 @@ public class Language {
             if (files != null) {
                 for (int i = 0; i < files.length; i++) {
                     filesList.add(files[i].getName());
-                    System.out.println(files[i].getName());
                 }
             }
             loadFiles(filesList, path);
@@ -170,7 +168,6 @@ public class Language {
             if (!langMap.containsKey(n)) {
                 langMap.put(n, map);
                 languagesNames.add(n);
-                System.out.println("Language: " + n);
             }
         }
     }
@@ -186,10 +183,13 @@ public class Language {
         for (LanguageChangeEvent event : events) event.onLanguageChange();
     }
 
-    public static String getLocalized(String str) {
+    public static String getLocalized(@NotNull String str) {
         if (langMap.containsKey(language))
             if (langMap.get(language).containsKey(str))
                 return langMap.get(language).get(str);
+        if (langMap.containsKey("English"))
+            if (langMap.get("English").containsKey(str))
+                return langMap.get("English").get(str);
         return str;
     }
 

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
+import ua.lyohha.language.Language;
 import ua.lyohha.page.Page;
 import ua.lyohha.tasks.Task;
 
@@ -22,6 +23,8 @@ public class TestingPage extends Page {
     private Task task;
     private List<AnswerField> answerFields = new ArrayList<>();
 
+    public Label answerLabel;
+    public Label resultLabel;
     public Label taskNameLabel;
     public VBox taskVBox;
     public VBox answersVBox;
@@ -36,10 +39,10 @@ public class TestingPage extends Page {
         Color[] colors = new Color[task.getCountAnswers()];
         for (int i = 0; i < answerFields.size(); i++) {
             if (task.getAnswers()[i].equals(answerFields.get(i).textField.getText().trim())) {
-                answers[i] = "верно";
+                answers[i] = Language.getLocalized("testing_page.right.text");
                 colors[i] = Color.GREEN;
             } else {
-                answers[i] = "неверно";
+                answers[i] = Language.getLocalized("testing_page.wrong.text");
                 colors[i] = Color.RED;
                 for (i++; i < answerFields.size(); i++) {
                     answers[i] = "";
@@ -69,8 +72,7 @@ public class TestingPage extends Page {
         for (int i = 0; i < answerFields.size(); i++) {
             answerFields.get(i).label.setText(answers[i]);
             answerFields.get(i).label.getStyleClass().clear();
-            switch (colors[i])
-            {
+            switch (colors[i]) {
                 case WHITE:
                     answerFields.get(i).label.getStyleClass().add("label-view-white");
                     break;
@@ -157,7 +159,18 @@ public class TestingPage extends Page {
     @Override
     public void initializeComponent() {
         rightAnswersButton.setDisable(true);
+        setLocalizedNames();
     }
+
+    private void setLocalizedNames() {
+        answerLabel.setText(Language.getLocalized("testing_page.answer.text"));
+        resultLabel.setText(Language.getLocalized("testing_page.result.text"));
+        checkButton.setText(Language.getLocalized("testing_page.check_button.text"));
+        rightAnswersButton.setText(Language.getLocalized("testing_page.right_answer_button.text"));
+        menuButton.setText(Language.getLocalized("testing_page.menu_button.text"));
+        nextButton.setText(Language.getLocalized("testing_page.next_button.text"));
+    }
+
 
     private class AnswerField {
         public TextField textField;

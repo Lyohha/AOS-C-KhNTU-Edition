@@ -2,10 +2,11 @@ package ua.lyohha.tasks.management.operatorswitch;
 
 import com.sun.istack.internal.NotNull;
 import javafx.scene.layout.Pane;
+import ua.lyohha.language.Language;
 import ua.lyohha.tasks.Task;
 
 public class OperatorSwitchTask implements Task {
-    private String taskName = "Переключатель (оператор switch)";
+    private String taskName = Language.getLocalized("management_menu.item4.name");
     private TemplateGenerator templateGenerator;
 
     @Override
