@@ -2,6 +2,7 @@ package ua.lyohha.language;
 
 import java.io.*;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -102,7 +103,7 @@ public class Language {
         for (String s : files) {
             try {
                 InputStream is = Language.class.getResourceAsStream("/assets/lang/" + s);
-                InputStreamReader isr = new InputStreamReader(is);
+                InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
                 BufferedReader reader = new BufferedReader(isr);
 
                 readFile(reader);
