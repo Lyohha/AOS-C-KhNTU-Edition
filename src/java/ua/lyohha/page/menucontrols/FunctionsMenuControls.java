@@ -37,7 +37,6 @@ public class FunctionsMenuControls extends MenuControl {
                 ((TestingPage)menuPage.navigation.navigateTo(TestingPage.class)).setTask(new SqueezeTask());
                 break;
             case 5:
-                Language.removeEvent(this.menuPage);
                 menuPage.navigation.navigateBack();
                 break;
         }

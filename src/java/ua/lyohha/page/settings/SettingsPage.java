@@ -8,12 +8,16 @@ import javafx.scene.control.Label;
 import ua.lyohha.language.Language;
 import ua.lyohha.language.LanguageChangeEvent;
 import ua.lyohha.page.Page;
+import ua.lyohha.themes.Themes;
 
 public class SettingsPage extends Page implements LanguageChangeEvent {
-    public ComboBox themeComboBox;
-    private String styleClass = "/assets/page/settings/SettingsPage.css";
+
+    private boolean blockThemeComboBox = false;
+    private String styleClassDark = "/assets/page/settings/SettingsPageDark.css";
+    private String styleClassLight = "/assets/page/settings/SettingsPageLight.css";
     private String page = "/assets/page/settings/SettingsPage.fxml";
 
+    public ComboBox themeComboBox;
     public Button backButton;
     public Label menuNameLabel;
     public Label languageLabel;
@@ -27,7 +31,13 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
 
     @Override
     public String getStyleClass() {
-        return styleClass;
+        switch (Themes.getTheme()) {
+            case LIGHT:
+                return styleClassLight;
+            case DARK:
+            default:
+                return styleClassDark;
+        }
     }
 
     @Override
@@ -51,6 +61,16 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
     }
 
     public void themeComboBoxSelectionChanged(ActionEvent actionEvent) {
+        if (blockThemeComboBox)
+            return;
+        String value = (String) themeComboBox.getValue();
+        Themes.Theme[] themes = Themes.getThemes();
+        for (Themes.Theme th : themes) {
+            if (value.equals(Language.getLocalized(Themes.getUnlocalizedName(th)))) {
+                Themes.setTheme(th);
+                break;
+            }
+        }
     }
 
     public void backButtonClick(ActionEvent actionEvent) {
@@ -64,9 +84,14 @@ public class SettingsPage extends Page implements LanguageChangeEvent {
         languageLabel.setText(Language.getLocalized("settings_menu.language.name"));
         backButton.setText(Language.getLocalized("settings_menu.back_button.text"));
 
+        blockThemeComboBox = true;
         themeComboBox.getItems().clear();
-        themeComboBox.getItems().addAll(Language.getLocalized("settings_menu.theme_dark.name"), Language.getLocalized("settings_menu.theme_light.name"));
-        themeComboBox.setValue(Language.getLocalized("settings_menu.theme_dark.name"));
+
+        Themes.Theme[] themes = Themes.getThemes();
+        for (Themes.Theme th : themes)
+            themeComboBox.getItems().add(Language.getLocalized(Themes.getUnlocalizedName(th)));
+        themeComboBox.setValue(Language.getLocalized(Themes.getUnlocalizedName(Themes.getTheme())));
+        blockThemeComboBox = false;
     }
 
     @Override

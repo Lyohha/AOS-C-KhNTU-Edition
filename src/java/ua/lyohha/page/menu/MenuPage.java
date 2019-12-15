@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import ua.lyohha.language.LanguageChangeEvent;
 import ua.lyohha.page.MenuControl;
 import ua.lyohha.page.Page;
+import ua.lyohha.themes.Themes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,8 @@ public class MenuPage extends Page implements LanguageChangeEvent {
 
     private String[] items;
     private List<MenuItem> menuItems = new ArrayList<>();
-    private String styleClass = "/assets/page/menu/MenuPage.css";
+    private String styleClassDark = "/assets/page/menu/MenuPageDark.css";
+    private String styleClassLight = "/assets/page/menu/MenuPageLight.css";
     private String page = "/assets/page/menu/MenuPage.fxml";
     private MenuControl menuControl;
 
@@ -80,7 +82,14 @@ public class MenuPage extends Page implements LanguageChangeEvent {
 
     @Override
     public String getStyleClass() {
-        return styleClass;
+
+        switch (Themes.getTheme()) {
+            case LIGHT:
+                return styleClassLight;
+            case DARK:
+            default:
+                return styleClassDark;
+        }
     }
 
     @Override

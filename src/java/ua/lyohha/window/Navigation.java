@@ -5,16 +5,21 @@ import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import ua.lyohha.page.Page;
+import ua.lyohha.themes.ThemeChangeEvent;
+import ua.lyohha.themes.Themes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Navigation {
+public class Navigation implements ThemeChangeEvent {
 
     private List<Parent> pages = new ArrayList<>();
+    private List<Page> oPages = new ArrayList<>();
     private Pane pane;
 
     public Navigation(Pane pane) {
+
+        Themes.addEvent(this);
         this.pane = pane;
     }
 
@@ -46,8 +51,9 @@ public class Navigation {
                 pageContent.getStylesheets().add(c.getResource(((Page) o).getStyleClass()).toExternalForm());
             GridPane.setRowIndex(pageContent, 0);
             pages.add(pageContent);
-            ((Page)loader.getController()).navigation = this;
-            ((Page)loader.getController()).initializeComponent();
+            oPages.add((Page) o);
+            ((Page) loader.getController()).navigation = this;
+            ((Page) loader.getController()).initializeComponent();
             updateView();
             return loader.getController();
         }
@@ -64,16 +70,30 @@ public class Navigation {
     public void navigateBack() {
         if (pages.size() > 1) {
             pages.remove(pages.size() - 1);
+            oPages.remove(oPages.size() - 1);
             updateView();
         }
     }
 
     public void clearNavigationStack() {
-        if(pages.size() != 0)
-        {
-            Parent parent = pages.get(pages.size()-1);
+        if (pages.size() != 0) {
+            Parent parent = pages.get(pages.size() - 1);
+            Page page = oPages.get(oPages.size() - 1);
             pages.clear();
+            oPages.clear();
             pages.add(parent);
+            oPages.add(page);
+        }
+    }
+
+    @Override
+    public void onThemeChange() {
+        for (int i = 0; i < pages.size(); i++) {
+            pages.get(i).getStylesheets().clear();
+            if (oPages.get(i).getStyleClass() != null)
+                pages.get(i).getStylesheets()
+                        .add(oPages.get(i).getClass()
+                                .getResource(oPages.get(i).getStyleClass()).toExternalForm());
         }
     }
 }

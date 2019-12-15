@@ -13,12 +13,14 @@ import javafx.scene.text.TextAlignment;
 import ua.lyohha.language.Language;
 import ua.lyohha.page.Page;
 import ua.lyohha.tasks.Task;
+import ua.lyohha.themes.Themes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestingPage extends Page {
-    private String styleClass = "/assets/page/testing/TestingPage.css";
+    private String styleClassDark = "/assets/page/testing/TestingPageDark.css";
+    private String styleClassLight = "/assets/page/testing/TestingPageLight.css";
     private String page = "/assets/page/testing/TestingPage.fxml";
     private Task task;
     private List<AnswerField> answerFields = new ArrayList<>();
@@ -148,7 +150,13 @@ public class TestingPage extends Page {
 
     @Override
     public String getStyleClass() {
-        return styleClass;
+        switch (Themes.getTheme()) {
+            case LIGHT:
+                return styleClassLight;
+            case DARK:
+            default:
+                return styleClassDark;
+        }
     }
 
     @Override

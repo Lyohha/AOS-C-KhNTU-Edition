@@ -10,6 +10,7 @@ public class MainMenuControls extends MenuControl {
 
     public MainMenuControls(MenuPage menuPage) {
         super(menuPage);
+        Language.addEvent(menuPage);
     }
 
     @Override

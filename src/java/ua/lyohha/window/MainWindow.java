@@ -11,8 +11,10 @@ import ua.lyohha.language.Language;
 import ua.lyohha.language.LanguageChangeEvent;
 import ua.lyohha.page.menu.MenuPage;
 import ua.lyohha.page.menucontrols.MainMenuControls;
+import ua.lyohha.themes.ThemeChangeEvent;
+import ua.lyohha.themes.Themes;
 
-public class MainWindow extends Application implements LanguageChangeEvent {
+public class MainWindow extends Application implements LanguageChangeEvent, ThemeChangeEvent {
 
     public Label universityNameLabel;
     public GridPane frameGridPane;
@@ -28,16 +30,16 @@ public class MainWindow extends Application implements LanguageChangeEvent {
         Language.load();
         Language.loadLanguageList();
         Language.setLanguage("English");
+        Themes.setTheme(Themes.Theme.DARK);
 
         FXMLLoader mainWindowLoader = new FXMLLoader();
         Parent root = mainWindowLoader.load(getClass().getResource("/assets/window/MainWindow.fxml").openStream());
         MainWindow mainWindow = mainWindowLoader.getController();
         Language.addEvent(mainWindow);
+        Themes.addEvent(mainWindow);
         mainWindow.universityNameLabel.setText(Language.getLocalized("university.name"));
         navigation = new Navigation(mainWindow.frameGridPane);
-        mainWindow.mainGridPane.setStyle("-fx-background-color: \"#3C3F41\"");
-
-        mainWindow.universityNameLabel.setStyle("-fx-text-fill: white");
+        onThemeChange(mainWindow);
 
         MainMenuControls mainMenuControls = new MainMenuControls((MenuPage) navigation.navigateTo(MenuPage.class));
 
@@ -52,5 +54,25 @@ public class MainWindow extends Application implements LanguageChangeEvent {
     @Override
     public void onLanguageChange() {
         universityNameLabel.setText(Language.getLocalized("university.name"));
+    }
+
+    @Override
+    public void onThemeChange() {
+        onThemeChange(this);
+    }
+
+    private void onThemeChange(MainWindow mainWindow) {
+
+        switch (Themes.getTheme()) {
+            case LIGHT:
+                mainWindow.mainGridPane.setStyle("-fx-background-color: \"#EAEAEA\"");
+                mainWindow.universityNameLabel.setStyle("-fx-text-fill: black");
+                break;
+            case DARK:
+            default:
+                mainWindow.mainGridPane.setStyle("-fx-background-color: \"#3C3F41\"");
+                mainWindow.universityNameLabel.setStyle("-fx-text-fill: white");
+                break;
+        }
     }
 }

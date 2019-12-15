@@ -13,8 +13,6 @@ settings_menu.name=Settings
 settings_menu.theme.name=Theme
 settings_menu.language.name=Language
 settings_menu.back_button.text=Back
-settings_menu.theme_dark.name=Dark
-settings_menu.theme_light.name=Light
 
 functions_menu.name=Blocks and Functions
 functions_menu.item1.name=Memory Classes: Nesting Blocks
@@ -55,3 +53,6 @@ testing_page.check_button.text=Check
 testing_page.right_answer_button.text=Right Answers
 testing_page.menu_button.text=Back in Menu
 testing_page.next_button.text=Next
+
+themes.theme_dark.name=Dark
+themes.theme_light.name=Light
