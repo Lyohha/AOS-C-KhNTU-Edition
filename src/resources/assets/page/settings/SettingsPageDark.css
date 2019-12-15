@@ -32,11 +32,13 @@
 
 .combo-box .list-cell {
     -fx-text-fill: "#CFCFCF";
+    -fx-font-size: 16;
 }
 
 .combo-box .list-view .list-cell {
     -fx-text-fill: "#CFCFCF";
     -fx-background-color: "#262626";
+    -fx-font-size: 16;
 }
 
 .combo-box .list-view .list-cell:hover {
