@@ -23,3 +23,30 @@
 .vbox-view {
     -fx-background-color: "#262626";
 }
+
+.combo-box {
+    -fx-border-color: "#363636";
+    -fx-border-width: 1;
+    -fx-background-color: "#262626";
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: "#CFCFCF";
+}
+
+.combo-box .list-view .list-cell {
+    -fx-text-fill: "#CFCFCF";
+    -fx-background-color: "#262626";
+}
+
+.combo-box .list-view .list-cell:hover {
+    -fx-background-color: "#363636";
+}
+
+.combo-box .list-view .list-cell:focused {
+    -fx-background-color: "#363636";
+}
+
+.combo-box:hover {
+    -fx-border-color: "#B0B0B0";
+}
