@@ -65,10 +65,8 @@ public class TemplateGenerator {
             o3 = CodeGenerator.Operator.values()[random.nextInt(CodeGenerator.Operator.values().length)];
 
             if ((o3 == CodeGenerator.Operator.MULTIPLICATION || o3 == CodeGenerator.Operator.DIVISION) &&
-                    !(o2 == CodeGenerator.Operator.MULTIPLICATION || o3 == CodeGenerator.Operator.DIVISION)) {
+                    !(o2 == CodeGenerator.Operator.MULTIPLICATION || o2 == CodeGenerator.Operator.DIVISION)) {
                 a = CodeGenerator.exeOperator(n2, n3, o3);
-                if (a == 0 && o2 == CodeGenerator.Operator.DIVISION)
-                    continue;
                 b = CodeGenerator.exeOperator(n1, a, o2);
             } else {
                 a = CodeGenerator.exeOperator(n1, n2, o2);
@@ -86,7 +84,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("="),
                 CodeGenerator.createPart(n1),
                 CodeGenerator.createPart(CodeGenerator.getOperator(o2)),
-                CodeGenerator.createPart(n3),
+                CodeGenerator.createPart(n2),
                 CodeGenerator.createPart(CodeGenerator.getOperator(o3)),
                 CodeGenerator.createPart(n3),
                 CodeGenerator.createPart("; "),
