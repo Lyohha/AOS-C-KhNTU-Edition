@@ -59,7 +59,7 @@ public class TemplateGenerator {
 
         lines.add(new HBox(
                 CodeGenerator.createPart("\tfor", CodeGenerator.CodeType.OPERATOR),
-                CodeGenerator.createPart("j="),
+                CodeGenerator.createPart("(j="),
                 CodeGenerator.createPart(n1),
                 CodeGenerator.createPart("; j"),
                 CodeGenerator.createPart(CodeGenerator.getOperator(c1)),

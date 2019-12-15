@@ -36,7 +36,6 @@ public class ManagementMenuControls extends MenuControl {
                 ((TestingPage) menuPage.navigation.navigateTo(TestingPage.class)).setTask(new NestingOfOperatorsTask());
                 break;
             case 5:
-                Language.removeEvent(this.menuPage);
                 menuPage.navigation.navigateBack();
                 break;
         }
