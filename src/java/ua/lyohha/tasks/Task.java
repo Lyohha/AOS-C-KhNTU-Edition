@@ -13,4 +13,6 @@ public interface Task {
     String getTaskName();
 
     void setTaskCode(@NotNull Pane pane);
+
+    String getImgage();
 }

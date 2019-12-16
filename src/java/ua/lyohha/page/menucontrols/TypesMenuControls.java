@@ -44,7 +44,7 @@ public class TypesMenuControls extends MenuControl {
 
     @Override
     public String getImage() {
-        return null;
+        return "img6.jpg";
     }
 
     @Override

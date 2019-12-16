@@ -33,4 +33,9 @@ public class NestingBlocksTask implements Task {
     public void setTaskCode(@NotNull Pane pane) {
         templateGenerator.setTemplate(pane);
     }
+
+    @Override
+    public String getImgage() {
+        return "img15.jpg";
+    }
 }

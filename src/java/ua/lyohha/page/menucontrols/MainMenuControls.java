@@ -40,7 +40,7 @@ public class MainMenuControls extends MenuControl {
 
     @Override
     public String getImage() {
-        return Themes.getTheme() == Themes.Theme.ANIME ? "img1.jpg" : null;
+        return "img1.jpg";
     }
 
     @Override

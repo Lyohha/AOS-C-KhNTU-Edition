@@ -44,7 +44,7 @@ public class FunctionsMenuControls extends MenuControl {
 
     @Override
     public String getImage() {
-        return null;
+        return "img4.jpg";
     }
 
     @Override

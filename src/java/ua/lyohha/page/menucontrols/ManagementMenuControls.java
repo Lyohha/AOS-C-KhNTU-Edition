@@ -43,7 +43,7 @@ public class ManagementMenuControls extends MenuControl {
 
     @Override
     public String getImage() {
-        return null;
+        return "img5.jpg";
     }
 
     @Override

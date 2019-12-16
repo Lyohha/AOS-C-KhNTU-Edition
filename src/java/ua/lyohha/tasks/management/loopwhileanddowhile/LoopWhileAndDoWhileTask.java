@@ -34,4 +34,9 @@ public class LoopWhileAndDoWhileTask implements Task {
         templateGenerator.setTemplate(pane);
     }
 
+    @Override
+    public String getImgage() {
+        return "img19.jpg";
+    }
+
 }

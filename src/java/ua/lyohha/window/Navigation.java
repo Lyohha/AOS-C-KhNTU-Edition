@@ -70,7 +70,7 @@ public class Navigation implements ThemeChangeEvent {
 
     public void setImage(String img) {
         try {
-            if (img != null) {
+            if (img != null && Themes.getTheme() == Themes.Theme.ANIME) {
                 pane.setBackground(
                         new Background(
                                 new BackgroundImage(

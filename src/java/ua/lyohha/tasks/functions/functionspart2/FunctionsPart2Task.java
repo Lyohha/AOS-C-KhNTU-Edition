@@ -33,4 +33,9 @@ public class FunctionsPart2Task implements Task {
     public void setTaskCode(@NotNull Pane pane) {
         templateGenerator.setTemplate(pane);
     }
+
+    @Override
+    public String getImgage() {
+        return "img14.jpg";
+    }
 }

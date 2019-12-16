@@ -32,4 +32,9 @@ public class LogicalAndIncreaseOperationsTask implements Task {
     public void setTaskCode(Pane pane) {
         templateGenerator.setTemplate(pane);
     }
+
+    @Override
+    public String getImgage() {
+        return "img23.jpg";
+    }
 }

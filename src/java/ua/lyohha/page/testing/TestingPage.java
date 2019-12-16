@@ -101,6 +101,7 @@ public class TestingPage extends Page {
 
     public void setTask(Task task) {
         this.task = task;
+        navigation.setImage(this.task.getImgage());
         taskNameLabel.setText(task.getTaskName());
         updateView();
     }
