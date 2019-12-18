@@ -7,7 +7,7 @@
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="ua.lyohha.page.testing.TestingPage"
-          prefHeight="600.0" prefWidth="800.0">
+          prefHeight="600.0" prefWidth="800.0" styleClass="main-grid">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS"/>
         <ColumnConstraints prefWidth="300" minWidth="300"/>

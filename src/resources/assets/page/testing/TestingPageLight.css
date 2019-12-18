@@ -1,3 +1,7 @@
+.main-grid {
+    -fx-background-color: "#EAEAEA"
+}
+
 .task-vbox{
     -fx-background-color: "#F0F0F0";
 }
