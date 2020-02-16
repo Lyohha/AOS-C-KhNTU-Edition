@@ -20,6 +20,7 @@ public class MainWindow extends Application implements LanguageChangeEvent, Them
     public Label universityNameLabel;
     public GridPane frameGridPane;
     public GridPane mainGridPane;
+    public Label authorNameLabel;
     private Navigation navigation;
 
     public MainWindow() {
@@ -69,11 +70,13 @@ public class MainWindow extends Application implements LanguageChangeEvent, Them
             case LIGHT:
                 mainWindow.mainGridPane.setStyle("-fx-background-color: \"#EAEAEA\"");
                 mainWindow.universityNameLabel.setStyle("-fx-text-fill: black");
+                mainWindow.authorNameLabel.setStyle("-fx-text-fill: black");
                 break;
             case DARK:
             default:
                 mainWindow.mainGridPane.setStyle("-fx-background-color: \"#3C3F41\"");
                 mainWindow.universityNameLabel.setStyle("-fx-text-fill: white");
+                mainWindow.authorNameLabel.setStyle("-fx-text-fill: white");
                 break;
         }
     }
