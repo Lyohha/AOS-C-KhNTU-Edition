@@ -32,7 +32,7 @@ management_menu.item6.name=Назад
 
 operation_menu.name=Операции
 operation_menu.item1.name=Операции присваивания
-operation_menu.item2.name=Операции логики и увелечения
+operation_menu.item2.name=Операции логики и увеличения
 operation_menu.item3.name=Операции отношения и условий
 operation_menu.item4.name=Выражения логики
 operation_menu.item5.name=Назад
