@@ -83,7 +83,8 @@ public class TemplateGenerator {
         lines.add(new HBox(
                 CodeGenerator.createPart("\twhile", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart("((c=input[i++]) != "),
-                CodeGenerator.createPart("EOS", CodeGenerator.CodeType.DEFINE1),
+                //CodeGenerator.createPart("EOS", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("\'\\0\'", CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart(")")
         ));
 
@@ -102,9 +103,12 @@ public class TemplateGenerator {
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("\tDEFINE(", CodeGenerator.CodeType.DEFINE1),
+                /*CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("num"),
-                CodeGenerator.createPart(")", CodeGenerator.CodeType.OPERATOR),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.OPERATOR),*/
+                CodeGenerator.createPart("\tprintf("),
+                CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", num)"),
                 CodeGenerator.createPart(";")
         ));
 
@@ -122,7 +126,8 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("(i="),
                 CodeGenerator.createPart(0),
                 CodeGenerator.createPart("; (c=input[i]) != "),
-                CodeGenerator.createPart("EOS", CodeGenerator.CodeType.DEFINE1),
+                //CodeGenerator.createPart("EOS", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("\'\\0\'", CodeGenerator.CodeType.STRING),
                 CodeGenerator.createPart("; i++)")
         ));
 
@@ -157,13 +162,13 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(" <stdio.h>", CodeGenerator.CodeType.LIBRARY)
         ));
 
-        lines.add(new HBox(
+        /*lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
                 CodeGenerator.createPart(" EOS ", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("\'\\0\'", CodeGenerator.CodeType.STRING)
-        ));
+        ));*/
 
-        lines.add(new HBox(
+        /*lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
                 CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
@@ -173,7 +178,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(", "),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(")")
-        ));
+        ));*/
 
         lines.add(new HBox(
                 CodeGenerator.createPart(" ")

@@ -53,9 +53,12 @@ public class TemplateGenerator {
 
         if (pos.contains(1)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i++] = Integer.toString(n1);
@@ -73,9 +76,12 @@ public class TemplateGenerator {
 
         if (pos.contains(2)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\t\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i++] = Integer.toString(n2);
@@ -93,9 +99,12 @@ public class TemplateGenerator {
 
         if (pos.contains(3)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\t\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\t\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\t\t\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i++] = Integer.toString(n3);
@@ -113,9 +122,12 @@ public class TemplateGenerator {
 
         if (pos.contains(4)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\t\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\t\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\t\t\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i++] = Integer.toString(n3);
@@ -128,9 +140,12 @@ public class TemplateGenerator {
 
         if (pos.contains(5)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\t\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\t\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i++] = Integer.toString(n2);
@@ -141,9 +156,12 @@ public class TemplateGenerator {
         ));
         if (pos.contains(6)) {
             lines.add(new HBox(
-                    CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
+                    /*CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                     CodeGenerator.createPart("i"),
-                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                    CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                    CodeGenerator.createPart("\tprintf("),
+                    CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                    CodeGenerator.createPart(", i)"),
                     CodeGenerator.createPart(";")
             ));
             answers[i] = Integer.toString(n1);
@@ -169,7 +187,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(" <stdio.h>", CodeGenerator.CodeType.LIBRARY)
         ));
 
-        lines.add(new HBox(
+        /*lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
                 CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
@@ -179,7 +197,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(", "),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(")")
-        ));
+        ));*/
 
         lines.add(new HBox(
                 CodeGenerator.createPart(" ")

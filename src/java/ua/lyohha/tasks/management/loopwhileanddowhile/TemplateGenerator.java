@@ -75,9 +75,12 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("; x"),
                 CodeGenerator.createPart(CodeGenerator.getOperator(o1)),
                 CodeGenerator.createPart("=y;"),
-                CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
+                /*CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("x"),
-                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                CodeGenerator.createPart(" printf("),
+                CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", x)"),
                 CodeGenerator.createPart(";")
         ));
 
@@ -120,7 +123,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(";")
         ));
 
-        lines.add(new HBox(
+        /*lines.add(new HBox(
                 CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("x"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
@@ -128,6 +131,20 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("y"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(";")
+        ));*/
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tprintf("),
+                CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", x)"),
+                CodeGenerator.createPart(";")
+        ));
+
+        lines.add(new HBox(
+                CodeGenerator.createPart("\tprintf("),
+                CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", y)"),
                 CodeGenerator.createPart(";")
         ));
 
@@ -167,9 +184,12 @@ public class TemplateGenerator {
                 CodeGenerator.createPart("(--y>"),
                 CodeGenerator.createPart(n1),
                 CodeGenerator.createPart("); "),
-                CodeGenerator.createPart("PRINT(", CodeGenerator.CodeType.DEFINE1),
+                /*CodeGenerator.createPart("PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("z"),
-                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart(")", CodeGenerator.CodeType.DEFINE1),*/
+                CodeGenerator.createPart(" printf("),
+                CodeGenerator.createPart("\"%d\\n\"", CodeGenerator.CodeType.STRING),
+                CodeGenerator.createPart(", z)"),
                 CodeGenerator.createPart(";")
         ));
 
@@ -199,7 +219,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(" <stdio.h>", CodeGenerator.CodeType.LIBRARY)
         ));
 
-        lines.add(new HBox(
+        /*lines.add(new HBox(
                 CodeGenerator.createPart("#define", CodeGenerator.CodeType.DIRECTIVE),
                 CodeGenerator.createPart(" PRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
@@ -209,7 +229,7 @@ public class TemplateGenerator {
                 CodeGenerator.createPart(", "),
                 CodeGenerator.createPart("int", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(")")
-        ));
+        ));*/
 
         lines.add(new HBox(
                 CodeGenerator.createPart(" ")
