@@ -102,7 +102,7 @@ public class TemplateGenerator {
         ));
 
         lines.add(new HBox(
-                CodeGenerator.createPart("\tDEFINE(", CodeGenerator.CodeType.DEFINE1),
+                CodeGenerator.createPart("\tPRINT(", CodeGenerator.CodeType.DEFINE1),
                 CodeGenerator.createPart("num"),
                 CodeGenerator.createPart(")", CodeGenerator.CodeType.OPERATOR),
                 CodeGenerator.createPart(";")
